@@ -18,7 +18,7 @@ const pages = [
 
 export default function Navbar() {
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ marginBottom: '16px' }}>
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <Link href="/">Home</Link>
