@@ -14,8 +14,10 @@ const SocialCard = ({ href, handle, children }: SocialCardProps) => {
   return (
     <Card className="social-card">
       <CardContent>
-        <IconButton href={href}>{children}</IconButton>
         <div className="handle">{handle}</div>
+        <IconButton href={href} className="icon-button">
+          {children}
+        </IconButton>
       </CardContent>
     </Card>
   );

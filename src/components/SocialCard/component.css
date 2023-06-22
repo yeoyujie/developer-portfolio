@@ -1,31 +1,26 @@
 .social-card {
   position: relative;
+  height: 100px;
+}
+
+.icon-button,
+.handle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.icon-button {
+  left: calc(50% - 20px);
 }
 
 .handle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;
-  color: #000;
-  transition: transform 0.3s ease-in-out;
+  left: calc(50% + 20px);
 }
 
+.social-card:hover .icon-button,
 .social-card:hover .handle {
-  transform: translateY(-100%);
-}
-
-.social-card:hover .handle::after {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/confetti.gif);
+  opacity: 1;
 }
