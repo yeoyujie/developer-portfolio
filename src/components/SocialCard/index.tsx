@@ -21,10 +21,21 @@ const SocialCard = ({ href, handle, children, pngSrc }: SocialCardProps) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <CardContent  style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <CardContent
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <div className="handle">{handle}</div>
         {isHovered ? (
-          <IconButton href={href} className="icon-button" size="large">
+          <IconButton
+            href={href}
+            className="icon-button"
+            size="large"
+            target="_blank"
+          >
             {children}
           </IconButton>
         ) : (
