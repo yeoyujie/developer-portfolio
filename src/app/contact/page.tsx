@@ -5,14 +5,13 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import './module.css'
-
+import "./module.css";
+import SocialCard from "@/components/SocialCard";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -50,15 +49,20 @@ export default function Contact() {
 
   return (
     <>
-      <IconButton href="https://www.instagram.com/yu_jieee">
-        <InstagramIcon />
-      </IconButton>
-      @yu_jieee
-      <br />
-      <IconButton href="https://www.linkedin.com/in/yeoyujie/">
-        <LinkedInIcon />
-      </IconButton>
-      Yeo Yu Jie
+      <>
+        <SocialCard
+          href="https://www.instagram.com/yu_jieee"
+          handle="@yu_jieee"
+        >
+          <InstagramIcon />
+        </SocialCard>
+        <SocialCard
+          href="https://www.linkedin.com/in/yeoyujie/"
+          handle="Yeo Yu Jie"
+        >
+          <LinkedInIcon />
+        </SocialCard>
+      </>
       <Card>
         <CardContent>
           <form onSubmit={handleSubmit}>
