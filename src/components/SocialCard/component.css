@@ -1,6 +1,6 @@
 .social-card {
   position: relative;
-  height: 100px;
+  height: 150px;
 }
 
 .icon-button,
@@ -13,11 +13,12 @@
 }
 
 .icon-button {
-  left: calc(50% - 30px);
+  left: calc(46%);
 }
 
 .handle {
-  left: calc(50% + 20px);
+  left: calc(49%);
+  font-size: 20px;
 }
 
 .social-card:hover .icon-button,
@@ -26,11 +27,7 @@
 }
 
 .png-image {
-  width: 150px;
+  width: 200px;
   height: 100px;
   display: block;
-  position: absolute;
-  top: 50%;
-  left: calc(50% - 20px);
-  transform: translateY(-50%);
 }

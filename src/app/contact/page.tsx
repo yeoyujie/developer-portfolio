@@ -5,15 +5,18 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import TelegramIcon from "@mui/icons-material/Telegram";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./module.css";
 import SocialCard from "@/components/SocialCard";
-import LinkedInPng from "@/assets/linkedin.png"
-import InstagramPng from "@/assets/instagram.png"
+import LinkedInPng from "@/assets/linkedin.png";
+import InstagramPng from "@/assets/instagram.png";
+import TelegramPng from "@/assets/telegram.png";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -52,6 +55,14 @@ export default function Contact() {
   return (
     <>
       <>
+        <Typography
+          variant="h4"
+          align="center"
+          sx={{ fontFamily: "Montserrat, sans-serif" }}
+          gutterBottom
+        >
+          My Socials
+        </Typography>
         <SocialCard
           href="https://www.instagram.com/yu_jieee"
           handle="@yu_jieee"
@@ -66,9 +77,27 @@ export default function Contact() {
         >
           <LinkedInIcon />
         </SocialCard>
+        <SocialCard
+          href="https://t.me/yu_jieee"
+          handle="@yu_jieee"
+          pngSrc={TelegramPng}
+        >
+          <TelegramIcon />
+        </SocialCard>
       </>
       <Card>
         <CardContent>
+          <Typography
+            variant="h6"
+            align="center"
+            sx={{ fontFamily: "Montserrat, sans-serif" }}
+            gutterBottom
+          >
+            Share your thoughts with us!
+            <br />
+            Toggle the button on the right if you want to post to the message
+            board below and connect with others!
+          </Typography>
           <form onSubmit={handleSubmit}>
             <TextField
               label="Name"
@@ -76,12 +105,16 @@ export default function Contact() {
               onChange={(event) => setName(event.target.value)}
               fullWidth
             />
+            <br />
+            <br />
             <TextField
               label="Email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               fullWidth
             />
+            <br />
+            <br />
             <TextField
               label="Message"
               value={message}
@@ -89,11 +122,15 @@ export default function Contact() {
               fullWidth
               multiline
             />
-            <Button type="submit">Submit</Button>
+            <br />
+            <br />
+            <Button type="submit" variant="contained" color="primary" fullWidth>
+              Submit
+            </Button>
           </form>
         </CardContent>
       </Card>
-      <Slider {...settings}>
+      <Slider {...settings} className="slider">
         {messages.map((msg) => (
           <Card key={msg.email} className="square-card">
             <CardContent>
