@@ -2,8 +2,8 @@ import { ReactNode, useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import IconButton from "@mui/material/IconButton";
-import "./component.css";
 import { StaticImageData } from "next/image";
+import "./component.css";
 
 interface SocialCardProps {
   href: string;
