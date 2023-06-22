@@ -13,7 +13,7 @@
 }
 
 .icon-button {
-  left: calc(50% - 20px);
+  left: calc(50% - 30px);
 }
 
 .handle {
@@ -23,4 +23,14 @@
 .social-card:hover .icon-button,
 .social-card:hover .handle {
   opacity: 1;
+}
+
+.png-image {
+  width: 150px;
+  height: 100px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 20px);
+  transform: translateY(-50%);
 }

@@ -12,6 +12,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./module.css";
 import SocialCard from "@/components/SocialCard";
+import LinkedInPng from "@/assets/linkedin.png"
+import InstagramPng from "@/assets/instagram.png"
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -53,12 +55,14 @@ export default function Contact() {
         <SocialCard
           href="https://www.instagram.com/yu_jieee"
           handle="@yu_jieee"
+          pngSrc={InstagramPng}
         >
           <InstagramIcon />
         </SocialCard>
         <SocialCard
           href="https://www.linkedin.com/in/yeoyujie/"
           handle="Yeo Yu Jie"
+          pngSrc={LinkedInPng}
         >
           <LinkedInIcon />
         </SocialCard>
