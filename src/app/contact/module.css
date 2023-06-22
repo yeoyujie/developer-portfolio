@@ -1,0 +1,11 @@
+/* .square-card {
+  width: 200px;
+  height: 150px;
+} */
+
+.square-card .MuiCardContent-root {
+  width: 250px;
+  height: 200px;
+  justify-content: center;
+  align-items: start;
+}
