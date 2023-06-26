@@ -11,7 +11,7 @@
 //   );
 // }
 import Image from "next/image";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import star1Img from "@/assets/stars/star1.png";
 import moonImg from "@/assets/moon.png";
@@ -34,16 +34,39 @@ export default function Experience() {
   });
 
   return (
-    <Box className="container">
-      <Image src={star1Img} alt="Star" id="star" className="image" />
-      <Image src={moonImg} alt="Moon" id="moon" className="image" />
-      <Image src={peakImg} alt="Peak" id="peak" className="image" />
-      <Image
-        src={mountainsImg}
-        alt="Mountains"
-        id="mountains"
-        className="image"
-      />
-    </Box>
+    <>
+      <Box className="container">
+        <Image src={star1Img} alt="Star" id="star" className="image" />
+        <Image src={moonImg} alt="Moon" id="moon" className="image" />
+        <Image src={peakImg} alt="Peak" id="peak" className="image" />
+        <Image
+          src={mountainsImg}
+          alt="Mountains"
+          id="mountains"
+          className="image"
+        />
+        <Typography
+          variant="h1"
+          className="text"
+          sx={{ fontFamily: "Montserrat, sans-serif" }}
+        >
+          Explore
+        </Typography>
+      </Box>
+      <Box className="exp-section">
+        <h2>My Experiences</h2>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s with
+          the release of Letraset sheets containing Lorem Ipsum passages, and
+          more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.
+        </p>
+      </Box>
+    </>
   );
 }

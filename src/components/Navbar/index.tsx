@@ -18,14 +18,32 @@ const pages = [
 
 export default function Navbar() {
   return (
-    <AppBar position="static" sx={{ marginBottom: '16px' }}>
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: "transparent",
+        boxShadow: "none",
+        marginBottom: "16px",
+      }}
+    >
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <Link href="/">Home</Link>
         </Typography>
         {pages.map((page) => (
           <Link key={page.href} href={page.href} passHref>
-            <Button color="inherit">{page.title}</Button>
+            <Button
+              color="inherit"
+              sx={{
+                marginLeft: "16px",
+                "&:hover": {
+                  backgroundColor: "white",
+                  color: "#2b1055",
+                },
+              }}
+            >
+              {page.title}
+            </Button>
           </Link>
         ))}
       </Toolbar>
