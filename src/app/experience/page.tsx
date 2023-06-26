@@ -1,42 +1,12 @@
-import React, { useRef, useEffect } from "react";
+"use client";
 
-interface ParallaxProps {
-  imageSrc: string;
-  height: string;
-  children: React.ReactNode;
-}
+import Parallax from "@/components/Parallax";
+import image from "@/assets/parallax.webp";
 
-const Parallax = ({ imageSrc, height, children }: ParallaxProps) => {
-  const parallaxRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (parallaxRef.current) {
-      const onScroll = () => {
-        if (parallaxRef.current) {
-          const scrollPosition = window.pageYOffset;
-          parallaxRef.current.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
-        }
-      };
-      window.addEventListener("scroll", onScroll);
-      return () => window.removeEventListener("scroll", onScroll);
-    }
-  }, []);
-
+export default function Experience() {
   return (
-    <div
-      ref={parallaxRef}
-      style={{
-        backgroundImage: `url(${imageSrc})`,
-        backgroundAttachment: "fixed",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        height,
-      }}
-    >
-      {children}
-    </div>
+    <Parallax imageSrc={image} height="1500px">
+      <div>Experience Section Content</div>
+    </Parallax>
   );
-};
-
-export default Parallax;
+}
