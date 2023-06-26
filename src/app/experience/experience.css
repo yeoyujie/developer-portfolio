@@ -1,0 +1,54 @@
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 1400px;
+  justify-content: center;
+  align-items: center;
+}
+
+#moon {
+  mix-blend-mode: screen;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  width: 20%;
+  height: 20%;
+  z-index: 3;
+}
+
+#star {
+  mix-blend-mode: screen;
+  width: 100%;
+  height: 40%;
+}
+
+#mountains {
+  width: 100%;
+  z-index: 5;
+}
+
+#peak {
+  z-index: 10;
+}
+
+#text {
+  position: absolute;
+  color: white;
+  font-size: 7.5rem;
+  z-index: 9;
+}
+
+.sec {
+  position: relative;
+  padding: 100px;
+  background: #1c0522;
+}

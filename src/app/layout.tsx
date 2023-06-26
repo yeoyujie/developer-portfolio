@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import "./globals.css";
-import { Inter,  Montserrat } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,7 +12,7 @@ export const metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -23,4 +23,3 @@ export default function RootLayout({
     </html>
   );
 }
-
