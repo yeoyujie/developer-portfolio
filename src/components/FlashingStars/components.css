@@ -1,9 +1,12 @@
-.image {
+.starImage {
   top: 0;
   left: 0;
+  width: 100%;
+  height: 60%;
   position: absolute;
-  animation: animate 8s ease-in-out infinite !important;
+  animation: animate 6s ease-in-out infinite;
   pointer-events: none;
+  z-index: 2;
 }
 
 @keyframes animate {
@@ -46,12 +49,4 @@
 
 #star6 {
   animation-delay: 5s;
-}
-
-#star7 {
-  animation-delay: 6s;
-}
-
-#star8 {
-  animation-delay: 7s;
 }
