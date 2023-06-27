@@ -1,22 +1,26 @@
 "use client";
 
 import { useState } from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TelegramIcon from "@mui/icons-material/Telegram";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./module.css";
+
+import {
+  Card,
+  CardContent,
+  TextField,
+  Button,
+  Typography,
+} from "@mui/material";
+
+import { Instagram, LinkedIn, Telegram } from "@mui/icons-material";
+
 import SocialCard from "@/components/SocialCard";
-import LinkedInPng from "@/assets/linkedin.png";
-import InstagramPng from "@/assets/instagram.png";
-import TelegramPng from "@/assets/telegram.png";
+import LinkedInPng from "@/assets/social-media/linkedin.png";
+import InstagramPng from "@/assets/social-media/instagram.png";
+import TelegramPng from "@/assets/social-media/telegram.png";
+
+import "./module.css";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -68,21 +72,21 @@ export default function Contact() {
           handle="@yu_jieee"
           pngSrc={InstagramPng}
         >
-          <InstagramIcon />
+          <Instagram />
         </SocialCard>
         <SocialCard
           href="https://www.linkedin.com/in/yeoyujie/"
           handle="Yeo Yu Jie"
           pngSrc={LinkedInPng}
         >
-          <LinkedInIcon />
+          <LinkedIn />
         </SocialCard>
         <SocialCard
           href="https://t.me/yu_jieee"
           handle="@yu_jieee"
           pngSrc={TelegramPng}
         >
-          <TelegramIcon />
+          <Telegram />
         </SocialCard>
       </>
       <Card>

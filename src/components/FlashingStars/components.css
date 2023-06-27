@@ -6,7 +6,6 @@
   position: absolute;
   animation: animate 6s ease-in-out infinite;
   pointer-events: none;
-  z-index: 2;
 }
 
 @keyframes animate {

@@ -11,14 +11,14 @@ import "./components.css";
 
 const FlashingStars = forwardRef((props, ref) => {
   return (
-    <Box className="section" ref={ref}>
-      <Image src={star1Img} alt="Star" id="star1" className="starImage" />
-      <Image src={star2Img} alt="Star" id="star2" className="starImage" />
-      <Image src={star3Img} alt="Star" id="star3" className="starImage" />
-      <Image src={star4Img} alt="Star" id="star4" className="starImage" />
-      <Image src={star5Img} alt="Star" id="star5" className="starImage" />
-      <Image src={star6Img} alt="Star" id="star6" className="starImage" />
-    </Box>
+      <Box className="section">
+        <Image src={star1Img} alt="Star" id="star1" className="starImage" />
+        <Image src={star2Img} alt="Star" id="star2" className="starImage" />
+        <Image src={star3Img} alt="Star" id="star3" className="starImage" />
+        <Image src={star4Img} alt="Star" id="star4" className="starImage" />
+        <Image src={star5Img} alt="Star" id="star5" className="starImage" />
+        <Image src={star6Img} alt="Star" id="star6" className="starImage" />
+      </Box>
   );
 });
 

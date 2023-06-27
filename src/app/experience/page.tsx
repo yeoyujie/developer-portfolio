@@ -1,35 +1,41 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, MutableRefObject } from "react";
-import { Box, Typography } from "@mui/material";
+import { useEffect } from "react";
+import { Box, List, ListItem, Typography } from "@mui/material";
 
 import moonImg from "@/assets/moon.png";
 import peakImg from "@/assets/peak.png";
 import mountainsImg from "@/assets/mountains.png";
 
 import FlashingStars from "@/components/FlashingStars";
-import "./experience.css";
+import "./module.css";
 
 export default function Experience() {
-  const flashingStarsRef = useRef<HTMLDivElement | null>(null);
 
-  window.addEventListener("scroll", () => {
-    let value = window.scrollY;
-    let moon = document.getElementById("moon");
-    let mountains = document.getElementById("mountains");
+  useEffect(() => {
+    const handleScroll = () => {
+      let value = window.scrollY;
+      let moon = document.getElementById("moon");
+      let mountains = document.getElementById("mountains");
 
-    if (flashingStarsRef.current && moon && mountains) {
-      flashingStarsRef.current.style.top = value * 0.25 + "px";
-      moon.style.top = value * 0.7 + "px";
-      mountains.style.top = value * 0.3 + "px";
-    }
-  });
+      if (moon && mountains) {
+        moon.style.top = value * 0.6 + "px";
+        mountains.style.top = value * 0.3 + "px";
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
-      <Box className="container">
-        <FlashingStars ref={flashingStarsRef} />
+      <div className="container">
+        <FlashingStars/>
         <Image src={moonImg} alt="Moon" id="moon" className="image" />
         <Image src={peakImg} alt="Peak" id="peak" className="image" />
         <Image
@@ -45,7 +51,7 @@ export default function Experience() {
         >
           Explore
         </Typography>
-      </Box>
+      </div>
       <Box className="exp-section">
         <h2>My Experiences</h2>
         <p>
@@ -59,6 +65,15 @@ export default function Experience() {
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
         </p>
+        <List>
+          <ListItem>
+            <Typography variant="h3">Apple</Typography>
+            <Typography variant="body1">
+            - Developed and maintained several websites for clients using WordPress, Bootstrap, jQuery and PHP. <br/>
+            - Implemented responsive design, SEO best practices, accessibility features and performance optimization. <br/>
+            </Typography>
+          </ListItem>
+        </List>
       </Box>
     </>
   );
