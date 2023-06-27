@@ -7,9 +7,7 @@ import { Typography } from "@mui/material";
 import moonImg from "@/assets/moon.png";
 import peakImg from "@/assets/peak.png";
 import mountainsImg from "@/assets/mountains.png";
-import shootingStar from "@/assets/shootingstar.json";
-import slowShootingStar from "@/assets/shootingstar2.json";
-import fastShootingStar from "@/assets/shootingstar3.json";
+import slowShootingStar from "@/assets/slowshootingstar.json";
 import Lottie from "lottie-react";
 
 import FlashingStars from "@/components/FlashingStars";
@@ -53,7 +51,7 @@ export default function WelcomeSection() {
             zIndex: 10,
           }}
         />
-        <ShootingStars fastShootingStar={fastShootingStar}/>
+        <ShootingStars />
         <Image src={moonImg} alt="Moon" id="moon" className="image" />
         <Image src={peakImg} alt="Peak" id="peak" className="image" />
         <Image

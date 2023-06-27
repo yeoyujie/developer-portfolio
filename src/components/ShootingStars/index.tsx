@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import Lottie from "lottie-react";
+import fastShootingStar from "@/assets/fastshootingstar.json";
 
-interface MyComponentProps {
-  fastShootingStar: any;
-}
 
-const ShootingStars: React.FC<MyComponentProps> = ({ fastShootingStar }) => {
+const ShootingStars = () => {
   const [playSecondAnimation, setPlaySecondAnimation] = useState(false);
   const [playThirdAnimation, setPlayThirdAnimation] = useState(false);
   const [playFourthAnimation, setPlayFourthAnimation] = useState(false);
