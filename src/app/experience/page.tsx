@@ -17,25 +17,28 @@ import star1Img from "@/assets/stars/star1.png";
 import moonImg from "@/assets/moon.png";
 import peakImg from "@/assets/peak.png";
 import mountainsImg from "@/assets/mountains.png";
+
+import FlashingStars from "@/components/FlashingStars";
 import "./experience.css";
 
 export default function Experience() {
   window.addEventListener("scroll", () => {
     let value = window.scrollY;
-    let star1 = document.getElementById("star");
+    // let star1 = document.getElementById("star");
     let moon = document.getElementById("moon");
     let mountains = document.getElementById("mountains");
 
-    if (star1 && moon && mountains) {
-      star1.style.top = value * 0.25 + "px";
-      moon.style.top = value * 0.7 + "px";
-      mountains.style.top = value * 0.3 + "px";
-    }
+    // if (star1 && moon && mountains) {
+    //   star1.style.top = value * 0.25 + "px";
+    //   moon.style.top = value * 0.7 + "px";
+    //   mountains.style.top = value * 0.3 + "px";
+    // }
   });
 
   return (
     <>
       <Box className="container">
+        <FlashingStars />
         <Image src={star1Img} alt="Star" id="star" className="image" />
         <Image src={moonImg} alt="Moon" id="moon" className="image" />
         <Image src={peakImg} alt="Peak" id="peak" className="image" />
