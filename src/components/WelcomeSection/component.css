@@ -26,13 +26,12 @@
 }
 
 #star {
-  mix-blend-mode: screen;
   width: 100%;
   height: 40%;
 }
 
 #mountains {
-  height: 70%;
+  height: 75%;
   width: 100%;
   z-index: 5;
 }

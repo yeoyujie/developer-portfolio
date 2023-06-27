@@ -1,3 +1,25 @@
+.intro {
+  position: relative;
+  padding: 250px;
+  background: #1c0522;
+}
+
+.intro h1 {
+  font-size: 3.5em;
+  padding-bottom: 10px;
+  color: #fff;
+  font-family: var(--font-family);
+}
+
+.intro p {
+  color: #fff;
+  font-size: 1.5em;
+  padding-bottom: 10px;
+  font-family: var(--font-family);
+}
+
+
+/* Preset elements */
 .main {
   display: flex;
   flex-direction: column;

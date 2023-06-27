@@ -13,6 +13,7 @@ const pages = [
   { title: "Experience", href: "/experience" },
   { title: "Projects", href: "/projects" },
   { title: "Games", href: "/games" },
+  {title: "Monsters", href: "/monsters"},
   { title: "Contact", href: "/contact" },
 ];
 

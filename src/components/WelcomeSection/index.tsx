@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import { useEffect } from "react";
@@ -7,9 +7,14 @@ import { Typography } from "@mui/material";
 import moonImg from "@/assets/moon.png";
 import peakImg from "@/assets/peak.png";
 import mountainsImg from "@/assets/mountains.png";
+import shootingStar from "@/assets/shootingstar.json";
+import slowShootingStar from "@/assets/shootingstar2.json";
+import fastShootingStar from "@/assets/shootingstar3.json";
+import Lottie from "lottie-react";
 
 import FlashingStars from "@/components/FlashingStars";
-import "./component.css"
+import ShootingStars from "@/components/ShootingStars";
+import "./component.css";
 
 export default function WelcomeSection() {
   useEffect(() => {
@@ -20,7 +25,7 @@ export default function WelcomeSection() {
 
       if (moon && mountains) {
         moon.style.top = value * 0.6 + "px";
-        mountains.style.top = value * 0.3 + "px";
+        mountains.style.top = value * 0.25 + "px";
       }
     };
 
@@ -31,10 +36,24 @@ export default function WelcomeSection() {
     };
   }, []);
 
-  return (
+  return (  
     <>
       <div className="container">
         <FlashingStars />
+        <Lottie
+          animationData={slowShootingStar}
+          loop={true}
+          autoplay={true}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 10,
+          }}
+        />
+        <ShootingStars fastShootingStar={fastShootingStar}/>
         <Image src={moonImg} alt="Moon" id="moon" className="image" />
         <Image src={peakImg} alt="Peak" id="peak" className="image" />
         <Image
