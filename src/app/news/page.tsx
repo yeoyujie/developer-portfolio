@@ -2,10 +2,6 @@
 
 import { useState, useEffect } from "react";
 import {
-  Card,
-  CardContent,
-  CardMedia,
-  Grid,
   Table,
   TableBody,
   TableCell,
@@ -16,6 +12,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import { ViewControls } from "@/components/ViewControls";
+import { CardView } from "@/components/CardView";
 
 interface NewsApiResponse {
   status: string;
@@ -67,42 +64,7 @@ export default function News() {
         setNumArticles={setNumArticles}
       />
       {viewMode === "card" ? (
-        <Grid container spacing={2}>
-          {articles.map((article) => (
-            <Grid item xs={12} sm={6} md={4} key={article.url}>
-              <Link href={`/article/${encodeURIComponent(article.url)}`}>
-                <Card sx={{ height: "100%" }}>
-                {article.urlToImage ? (
-                      <CardMedia
-                        component="img"
-                        height="300"
-                        image={article.urlToImage}
-                        alt={article.title}
-                        onError={(e) => {
-                          e.currentTarget.src = '/assets/placeholder.png';
-                        }}
-                      />
-                    ) : (
-                      <CardMedia
-                        component="img"
-                        height="300"
-                        image="https://picsum.photos/1920/1080"
-                        alt="Placeholder image"
-                      />
-                    )}
-                  <CardContent>
-                    <Typography variant="h5" component="div">
-                      {article.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {article.description}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Link>
-            </Grid>
-          ))}
-        </Grid>
+        <CardView articles={articles} />
       ) : (
         <TableContainer>
           <Table>
