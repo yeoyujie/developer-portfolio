@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Table, Typography } from "@mui/material";
-import Link from "next/link";
 import { ViewControls } from "@/components/ViewControls";
 import { CardView } from "@/components/CardView";
 import { TableView } from "@/components/TableView";
@@ -33,8 +31,11 @@ type ViewMode = "card" | "tab";
 
 export default function News() {
   const [articles, setArticles] = useState<Article[]>([]);
-  const [viewMode, setViewMode] = useState<ViewMode>("card");
-  const [numArticles, setNumArticles] = useState(20);
+  const [viewMode, setViewMode] = useState<ViewMode>(() => {
+    const storedViewMode = localStorage.getItem('viewMode');
+    return storedViewMode ? (storedViewMode as ViewMode) : 'card';
+  });
+  const [numArticles, setNumArticles] = useState(25);
 
   // Fetch top headlines from News API
   useEffect(() => {
@@ -47,6 +48,10 @@ export default function News() {
     };
     fetchArticles();
   }, [numArticles]);
+
+  useEffect(() => {
+    localStorage.setItem('viewMode', viewMode);
+  }, [viewMode]);
 
   return (
     <div>
