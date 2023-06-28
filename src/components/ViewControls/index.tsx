@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
-import { useState } from 'react';
-import { Button, ButtonGroup, Box } from '@mui/material';
+import { useState } from "react";
+import { Button, ButtonGroup, Box } from "@mui/material";
 
-type ViewMode = 'card' | 'tab';
+type ViewMode = "card" | "tab";
 
 interface ViewControlsProps {
   viewMode: ViewMode;
@@ -22,14 +22,14 @@ export function ViewControls({
     <Box display="flex" justifyContent="space-between">
       <ButtonGroup variant="contained">
         <Button
-          onClick={() => setViewMode('card')}
-          color={viewMode === 'card' ? 'primary' : 'inherit'}
+          onClick={() => setViewMode("card")}
+          color={viewMode === "card" ? "primary" : "inherit"}
         >
           Card View
         </Button>
         <Button
-          onClick={() => setViewMode('tab')}
-          color={viewMode === 'tab' ? 'primary' : 'inherit'}
+          onClick={() => setViewMode("tab")}
+          color={viewMode === "tab" ? "primary" : "inherit"}
         >
           Tab View
         </Button>
@@ -37,19 +37,19 @@ export function ViewControls({
       <ButtonGroup variant="contained">
         <Button
           onClick={() => setNumArticles(5)}
-          color={numArticles === 5 ? 'primary' : 'inherit'}
+          color={numArticles === 5 ? "primary" : "inherit"}
         >
           5
         </Button>
         <Button
           onClick={() => setNumArticles(10)}
-          color={numArticles === 10 ? 'primary' : 'inherit'}
+          color={numArticles === 10 ? "primary" : "inherit"}
         >
           10
         </Button>
         <Button
           onClick={() => setNumArticles(25)}
-          color={numArticles === 25 ? 'primary' : 'inherit'}
+          color={numArticles === 25 ? "primary" : "inherit"}
         >
           25
         </Button>
