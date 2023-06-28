@@ -26,7 +26,7 @@ export function CardView({ articles }: CardViewProps) {
     <Grid container spacing={2}>
       {articles.map((article) => (
         <Grid item xs={12} sm={6} md={3} key={article.url}>
-          <Link href={`/article/${encodeURIComponent(article.url)}`}>
+          <Link href={`news/${encodeURIComponent(article.url)}`}>
             <Card
               sx={{
                 height: "100%",
