@@ -35,20 +35,21 @@ export default function News() {
     const storedViewMode = localStorage.getItem('viewMode');
     return storedViewMode ? (storedViewMode as ViewMode) : 'card';
   });
-  const [numArticles, setNumArticles] = useState(25);
+  const [numArticles, setNumArticles] = useState(50);
 
-  // Fetch top headlines from News API
   useEffect(() => {
     const fetchArticles = async () => {
+      // Fetch top headlines from News API
       const res = await fetch(
-        `https://newsapi.org/v2/top-headlines?country=us&pageSize=${numArticles}&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
+        `https://newsapi.org/v2/top-headlines?country=us&pageSize=50&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
       );
       const NewsApiResponse = await res.json();
       setArticles(NewsApiResponse.articles);
     };
     fetchArticles();
-  }, [numArticles]);
+  }, []);
 
+  // Save viewMode to localStorage
   useEffect(() => {
     localStorage.setItem('viewMode', viewMode);
   }, [viewMode]);
@@ -61,10 +62,11 @@ export default function News() {
         numArticles={numArticles}
         setNumArticles={setNumArticles}
       />
+      {/* We choose to display the number of articles to be shown instead of recalling the API to prevent rate limiting. */}
       {viewMode === "card" ? (
-        <CardView articles={articles} />
+        <CardView articles={articles.slice(0, numArticles)} />
       ) : (
-        <TableView articles={articles} />
+        <TableView articles={articles.slice(0, numArticles)} />
       )}
     </div>
   );

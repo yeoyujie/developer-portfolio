@@ -1,6 +1,9 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { Inter, Montserrat } from "next/font/google";
+import ProgressBar from "next-nprogress-bar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <ProgressBar
+          height="4px"
+          color="#fffd00"
+          options={{ showSpinner: false }}
+          shallowRouting
+          appDirectory
+        />
         <Navbar />
         {children}
       </body>

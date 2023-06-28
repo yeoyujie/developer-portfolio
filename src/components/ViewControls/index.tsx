@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { Button, ButtonGroup, Box } from "@mui/material";
 
 type ViewMode = "card" | "tab";
@@ -19,7 +18,11 @@ export function ViewControls({
   setNumArticles,
 }: ViewControlsProps) {
   return (
-    <Box display="flex" justifyContent="space-between">
+    <Box
+      display="flex"
+      justifyContent="space-between"
+      sx={{ marginBottom: "16px", marginLeft:"10px", marginRight: "10px"}}
+    >
       <ButtonGroup variant="contained">
         <Button
           onClick={() => setViewMode("card")}
@@ -52,6 +55,12 @@ export function ViewControls({
           color={numArticles === 25 ? "primary" : "inherit"}
         >
           25
+        </Button>
+        <Button
+          onClick={() => setNumArticles(50)}
+          color={numArticles === 50 ? "primary" : "inherit"}
+        >
+          50
         </Button>
       </ButtonGroup>
     </Box>

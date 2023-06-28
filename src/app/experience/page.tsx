@@ -1,57 +1,13 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect } from "react";
 import { Box, List, ListItem, Typography } from "@mui/material";
-
-import moonImg from "@/assets/moon.png";
-import peakImg from "@/assets/peak.png";
-import mountainsImg from "@/assets/mountains.png";
-
-import FlashingStars from "@/components/FlashingStars";
+import WelcomeSection from "@/components/WelcomeSection";
 import "./module.css";
 
 export default function Experience() {
-
-  useEffect(() => {
-    const handleScroll = () => {
-      let value = window.scrollY;
-      let moon = document.getElementById("moon");
-      let mountains = document.getElementById("mountains");
-
-      if (moon && mountains) {
-        moon.style.top = value * 0.6 + "px";
-        mountains.style.top = value * 0.3 + "px";
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <>
-      <div className="container">
-        <FlashingStars/>
-        <Image src={moonImg} alt="Moon" id="moon" className="image" />
-        <Image src={peakImg} alt="Peak" id="peak" className="image" />
-        <Image
-          src={mountainsImg}
-          alt="Mountains"
-          id="mountains"
-          className="image"
-        />
-        <Typography
-          variant="h1"
-          className="text"
-          sx={{ fontFamily: "Montserrat, sans-serif" }}
-        >
-          Explore
-        </Typography>
-      </div>
+      <WelcomeSection />
       <Box className="exp-section">
         <h2>My Experiences</h2>
         <p>
@@ -69,8 +25,10 @@ export default function Experience() {
           <ListItem>
             <Typography variant="h3">Apple</Typography>
             <Typography variant="body1">
-            - Developed and maintained several websites for clients using WordPress, Bootstrap, jQuery and PHP. <br/>
-            - Implemented responsive design, SEO best practices, accessibility features and performance optimization. <br/>
+              - Developed and maintained several websites for clients using
+              WordPress, Bootstrap, jQuery and PHP. <br />
+              - Implemented responsive design, SEO best practices, accessibility
+              features and performance optimization. <br />
             </Typography>
           </ListItem>
         </List>

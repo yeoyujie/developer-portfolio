@@ -18,12 +18,15 @@ export default function WelcomeSection() {
   useEffect(() => {
     const handleScroll = () => {
       let value = window.scrollY;
-      let moon = document.getElementById("moon");
-      let mountains = document.getElementById("mountains");
+      let moon = document.getElementById("moon") as HTMLElement;
+      let mountains = document.getElementById("mountains") as HTMLElement;
 
       if (moon && mountains) {
-        moon.style.top = value * 0.6 + "px";
-        mountains.style.top = value * 0.25 + "px";
+        // Tells the browser animate stuff before the next repaint. Good to do this instead of just directly adjusting properties.
+        window.requestAnimationFrame(() => {
+          moon.style.top = value * 0.6 + "px";
+          mountains.style.top = value * 0.25 + "px";
+        });
       }
     };
 
@@ -34,7 +37,7 @@ export default function WelcomeSection() {
     };
   }, []);
 
-  return (  
+  return (
     <>
       <div className="container">
         <FlashingStars />
@@ -52,13 +55,22 @@ export default function WelcomeSection() {
           }}
         />
         <ShootingStars />
-        <Image src={moonImg} alt="Moon" id="moon" className="image" />
+        <Image
+          src={moonImg}
+          alt="Moon"
+          id="moon"
+          className="image"
+          data-scroll
+          data-scroll-speed="0.6"
+        />
         <Image src={peakImg} alt="Peak" id="peak" className="image" />
         <Image
           src={mountainsImg}
           alt="Mountains"
           id="mountains"
           className="image"
+          data-scroll
+          data-scroll-speed="0.25"
         />
         <Typography
           variant="h1"
