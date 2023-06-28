@@ -20,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+         {/* ProgressBar component from https://github.com/Skyleen77/next-nprogress-bar */}
         <ProgressBar
           height="4px"
           color="#fffd00"
