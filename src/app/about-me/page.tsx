@@ -1,66 +1,42 @@
 "use client";
 
-import { useEffect } from "react";
-import ScrollMagic from "scrollmagic";
-import { TweenMax, TimelineMax } from "gsap";
-import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
-import city from "@/assets/city.png";
-import Image from "next/image";
+// import { useEffect, useState, useRef } from "react";
+import { Parallax, Background } from "react-parallax";
+import Image, { StaticImageData } from "next/image";
 import "./module.css";
+import cityImg from "@/assets/city.png";
+import city2Img from "@/assets/city2.png";
+import Head from "next/head";
 
-// Add custom type definition for setTween method
-declare module "scrollmagic" {
-  interface Scene {
-    setTween(target: any, vars: gsap.TweenVars): this;
-  }
-}
+const styles: React.CSSProperties = {
+  fontFamily: "Montserrat, sans-serif",
+  textAlign: "center",
+};
 
-ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
+const image1 = "https://picsum.photos/1920/1080";
+
+const insideStyles: React.CSSProperties = {
+  background: "white",
+  padding: 20,
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%,-50%)",
+};
 
 export default function About() {
-  useEffect(() => {
-    // Init ScrollMagic Controller
-    var controller = new ScrollMagic.Controller();
-
-    // Create scenes for each black div
-    var scene1 = new ScrollMagic.Scene({
-      triggerElement: "#trigger-1",
-      duration: "20%",
-    })
-      .setTween("#wallpaper", { y: "-80%" })
-      .setTween("#black-div-1", { y: "-30%" })
-      .addTo(controller);
-    
-
-    var scene2 = new ScrollMagic.Scene({
-      triggerElement: "#black-div-2",
-      duration: "100%",
-    })
-      .setTween("#wallpaper", { y: "-160%" })
-      .setTween("#black-div-2", { y: "-160%" })
-      .addTo(controller);
-
-    var scene3 = new ScrollMagic.Scene({
-      triggerElement: "#black-div-3",
-      duration: "100%",
-    })
-      .setTween("#wallpaper", { y: "-240%" })
-      .setTween("#black-div-3", { y: "-240%" })
-      .addTo(controller);
-  }, []);
-
   return (
-    <div className="cc">
-      <Image src={city} alt="City" id="wallpaper" />
-      <div id="black-div-1" className="black-div">
-        Black Div 1
-      </div>
-      <div id="black-div-2" className="black-div">
-        Black Div 2
-      </div>
-      <div id="black-div-3" className="black-div">
-        Black Div 3
-      </div>
+    <div style={styles}>
+      <Parallax bgImage={image1} strength={500}>
+        <div style={{ height: 500 }}>
+          <div style={insideStyles}>HTML inside the parallax</div>
+        </div>
+      </Parallax>
+      <Parallax bgImage={image1} strength={500}>
+        <div style={{ height: 500 }}>
+          <div style={insideStyles}>HTML inside the parallax</div>
+        </div>
+      </Parallax>
     </div>
   );
 }

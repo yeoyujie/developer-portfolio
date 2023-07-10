@@ -27,6 +27,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-material-ui-carousel": "^3.4.2",
+    "react-parallax": "^3.5.1",
+    "react-scroll-parallax": "^3.4.2",
     "react-slick": "^0.29.0",
     "scrollmagic": "^2.0.8",
     "scrollmagic-plugin-gsap": "^1.0.4",
