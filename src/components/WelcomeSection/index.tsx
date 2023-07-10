@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Typography } from "@mui/material";
 
 import moonImg from "@/assets/moon.png";
@@ -15,17 +15,19 @@ import ShootingStars from "@/components/ShootingStars";
 import "./component.css";
 
 export default function WelcomeSection() {
+  const moonRef = useRef<HTMLImageElement>(null);
+  const mountainsRef = useRef<HTMLImageElement>(null);
+
   useEffect(() => {
     const handleScroll = () => {
       let value = window.scrollY;
-      let moon = document.getElementById("moon") as HTMLElement;
-      let mountains = document.getElementById("mountains") as HTMLElement;
+      let moon = moonRef.current;
+      let mountains = mountainsRef.current;
 
       if (moon && mountains) {
-        // Tells the browser animate stuff before the next repaint. Good to do this instead of just directly adjusting properties.
         window.requestAnimationFrame(() => {
-          moon.style.top = value * 0.6 + "px";
-          mountains.style.top = value * 0.25 + "px";
+          if (moon) moon.style.top = value * 0.6 + "px";
+          if (mountains) mountains.style.top = value * 0.25 + "px";
         });
       }
     };
@@ -62,6 +64,7 @@ export default function WelcomeSection() {
           className="image"
           data-scroll
           data-scroll-speed="0.6"
+          ref={moonRef}
         />
         <Image src={peakImg} alt="Peak" id="peak" className="image" />
         <Image
@@ -71,6 +74,7 @@ export default function WelcomeSection() {
           className="image"
           data-scroll
           data-scroll-speed="0.25"
+          ref={mountainsRef}
         />
         <Typography
           variant="h1"

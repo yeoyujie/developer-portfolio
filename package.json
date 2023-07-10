@@ -19,6 +19,7 @@
     "@types/react-slick": "^0.23.10",
     "gsap": "^3.12.1",
     "locomotive-scroll": "^4.1.4",
+    "lodash": "^4.17.21",
     "lottie-react": "^2.4.0",
     "newsapi": "^2.4.1",
     "next": "^13.4.7",
