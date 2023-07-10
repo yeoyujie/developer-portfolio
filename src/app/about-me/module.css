@@ -1,18 +1,13 @@
-.image-container1 {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  background-attachment: fixed;
-  background-position: center bottom;
+.paragraph {
+  height: 180px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: var(--font-family);
 }
 
-.image-container2 {
-	position: relative;
-	width: 100%;
-	height: 100vh;
-	overflow: hidden;
-	background-attachment: fixed;
-	background-position: center top;
-  }
-  
+.paragraph h1{
+  padding-top: 36px;
+  padding-bottom: 8px;
+  text-align: center;
+
+}
