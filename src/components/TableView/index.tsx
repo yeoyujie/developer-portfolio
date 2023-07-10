@@ -55,19 +55,22 @@ export function TableView({ articles }: TableViewProps) {
                     borderRadius: 1.5,
                   }}
                 >
+                  {/* Unable to use Next Image as the image source comes from multiple domains */}
                   {article.urlToImage ? (
                     <img
                       src={article.urlToImage}
                       alt={article.title}
-                      width="500"
-                      style={{ marginRight: "16px" }}
+                      width="300"
+                      height="200"
+                      style={{ marginRight: "16px", objectFit: "cover" }} 
                     />
                   ) : (
                     <img
                       src="https://picsum.photos/1920/1080"
                       alt="Placeholder image"
-                      width="500"
-                      style={{ marginRight: "16px" }}
+                      width="300"
+                      height="200"
+                      style={{ marginRight: "16px", objectFit: "cover" }} 
                     />
                   )}
                   <Box>
