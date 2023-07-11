@@ -17,7 +17,7 @@ export default function Games() {
   const [userInput, setUserInput] = useState("");
   const [isCorrect, setIsCorrect] = useState(false);
   const [score, setScore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(60);
+  const [timeLeft, setTimeLeft] = useState(1);
   const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
