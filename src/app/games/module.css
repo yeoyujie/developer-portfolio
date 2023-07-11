@@ -1,16 +1,8 @@
 .flag-container {
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.flag-container img {
-  width: 700px;
-  height: 400px;
-}
-
-.flag-container p {
-  color: white;
 }
 
 /* gradient animation */

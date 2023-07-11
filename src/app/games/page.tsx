@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
+import ScoreDisplay from "@/components/ScoreDisplay";
 import "./module.css";
 
 type Country = {
@@ -101,13 +103,14 @@ export default function Games() {
         </>
       ) : (
         <>
-          <p>Time left: {timeLeft}</p>
-          <p>Score: {score}</p>
+          <ScoreDisplay timeLeft={timeLeft} score={score} />
           {currentCountry && (
             <>
-              <img
+              <Image
                 src={currentCountry.flag}
-                alt={`Flag of ${currentCountry.name}`}
+                alt="Nice try but try to guess the flag yourself!"
+                width={500}
+                height={300}
               />
               <form onSubmit={handleSubmit}>
                 <div className="webflow-style-input">

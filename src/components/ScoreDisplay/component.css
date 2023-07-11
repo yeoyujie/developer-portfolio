@@ -1,0 +1,24 @@
+.score-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.score-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.score-box > span:first-of-type {
+  font-weight: bold;
+}
+
+.score-box > span:last-of-type {
+  font-size: 24px;
+}
