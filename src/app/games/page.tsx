@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import "./module.css";
 
 type Country = {
   name: string;
@@ -12,6 +13,9 @@ export default function Games() {
   const [currentCountry, setCurrentCountry] = useState<Country | null>(null);
   const [userInput, setUserInput] = useState("");
   const [isCorrect, setIsCorrect] = useState(false);
+  const [score, setScore] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(60);
+  const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
     // Fetch list of countries from REST Countries API
@@ -32,14 +36,37 @@ export default function Games() {
     fetchCountries();
   }, []);
 
+  // Set up timer
+  useEffect(() => {
+    if (timeLeft === 0) {
+      setGameOver(true);
+      return;
+    }
+    const timerId = setInterval(() => {
+      setTimeLeft((timeLeft) => timeLeft - 1);
+    }, 1000);
+    return () => clearInterval(timerId);
+  }, [timeLeft]);
+
+  const handleRetry = () => {
+    setGameOver(false);
+    setTimeLeft(60);
+    setScore(0);
+  };
+
+  const setRandomCountry = () => {
+    const randomIndex = Math.floor(Math.random() * countries.length);
+    setCurrentCountry(countries[randomIndex]);
+  };
+
   useEffect(() => {
     // Select a random country from the list
     if (countries.length > 0) {
-      const randomIndex = Math.floor(Math.random() * countries.length);
-      setCurrentCountry(countries[randomIndex]);
+      setRandomCountry();
     }
   }, [countries]);
 
+  // Handle user submission
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (
@@ -47,31 +74,60 @@ export default function Games() {
       userInput.toLowerCase() === currentCountry.name.toLowerCase()
     ) {
       setIsCorrect(true);
-      // Generate a new random country
-      const randomIndex = Math.floor(Math.random() * countries.length);
-      setCurrentCountry(countries[randomIndex]);
+      setScore((score) => score + 100);
+      setUserInput("");
+      setRandomCountry();
     } else {
       setIsCorrect(false);
     }
   };
 
+  // Handle skip
+  const handleSkip = () => {
+    setIsCorrect(false);
+    setUserInput("");
+    setRandomCountry();
+  };
+
   return (
-    <div>
-      {currentCountry && (
+    <div className="flag-container">
+      {gameOver ? (
         <>
-          <img
-            src={currentCountry.flag}
-            alt={`Flag of ${currentCountry.name}`}
-          />
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              value={userInput}
-              onChange={(event) => setUserInput(event.target.value)}
-            />
-            <button type="submit">Submit</button>
-          </form>
-          {isCorrect && <p>Correct!</p>}
+          <div className="game-over-screen">
+            <p>Game Over</p>
+            <p>Your final score is: {score}</p>
+            <button onClick={handleRetry}>Retry</button>
+          </div>
+        </>
+      ) : (
+        <>
+          <p>Time left: {timeLeft}</p>
+          <p>Score: {score}</p>
+          {currentCountry && (
+            <>
+              <img
+                src={currentCountry.flag}
+                alt={`Flag of ${currentCountry.name}`}
+              />
+              <form onSubmit={handleSubmit}>
+                <div className="webflow-style-input">
+                  <input
+                    type="text"
+                    value={userInput}
+                    onChange={(event) => setUserInput(event.target.value)}
+                    className={isCorrect ? "correct" : "incorrect"}
+                  />
+                  <button type="submit" disabled={gameOver}>
+                    Submit
+                  </button>
+                </div>
+              </form>
+              <button onClick={handleSkip} disabled={gameOver}>
+                Skip
+              </button>
+              {isCorrect && <p>Correct!</p>}
+            </>
+          )}
         </>
       )}
     </div>
