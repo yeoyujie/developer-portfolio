@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import ScoreDisplay from "@/components/ScoreDisplay";
+import GameOverScreen from "@/components/GameOverScreen";
 import "./module.css";
 
 type Country = {
@@ -94,13 +95,7 @@ export default function Games() {
   return (
     <div className="flag-container">
       {gameOver ? (
-        <>
-          <div className="game-over-screen">
-            <p>Game Over</p>
-            <p>Your final score is: {score}</p>
-            <button onClick={handleRetry}>Retry</button>
-          </div>
-        </>
+        <GameOverScreen score={score} onRetry={handleRetry} />
       ) : (
         <>
           <ScoreDisplay timeLeft={timeLeft} score={score} />
@@ -109,8 +104,8 @@ export default function Games() {
               <Image
                 src={currentCountry.flag}
                 alt="Nice try but try to guess the flag yourself!"
-                width={500}
-                height={300}
+                width={700}
+                height={400}
               />
               <form onSubmit={handleSubmit}>
                 <div className="webflow-style-input">
