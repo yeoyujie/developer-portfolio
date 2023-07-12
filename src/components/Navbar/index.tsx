@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -10,6 +9,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/assets/icons/logo.png";
 import LogoNeon from "@/assets/icons/logo neon.png";
+import LogoNeonOutline from "@/assets/icons/logo neon outline.png";
 
 const pages = [
   { title: "About", href: "/about-me" },
@@ -22,7 +22,7 @@ const pages = [
 ];
 
 export default function Navbar() {
-  const [logoSrc, setLogoSrc] = useState(Logo);
+  const [logoSrc, setLogoSrc] = useState(LogoNeonOutline);
 
   return (
     <AppBar
@@ -39,9 +39,9 @@ export default function Navbar() {
             href="/"
             passHref
             onMouseEnter={() => setLogoSrc(LogoNeon)}
-            onMouseLeave={() => setLogoSrc(Logo)}
+            onMouseLeave={() => setLogoSrc(LogoNeonOutline)}
           >
-            <Image src={logoSrc} alt="Home" width={60} height={60} />
+            <Image src={logoSrc} alt="Home" width={70} height={70} />
           </Link>
         </Typography>
         {pages.map((page) => (
