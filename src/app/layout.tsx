@@ -2,7 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import "./globals.css";
-import { Inter, Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import ProgressBar from "next-nprogress-bar";
 import { Metadata } from "next";
 
