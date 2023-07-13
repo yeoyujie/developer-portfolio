@@ -32,8 +32,8 @@ type ViewMode = "card" | "tab";
 export default function News() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [viewMode, setViewMode] = useState<ViewMode>(() => {
-    const storedViewMode = localStorage.getItem('viewMode');
-    return storedViewMode ? (storedViewMode as ViewMode) : 'card';
+    const storedViewMode = localStorage.getItem("viewMode");
+    return storedViewMode ? (storedViewMode as ViewMode) : "card";
   });
   const [numArticles, setNumArticles] = useState(50);
 
@@ -51,7 +51,7 @@ export default function News() {
 
   // Save viewMode to localStorage
   useEffect(() => {
-    localStorage.setItem('viewMode', viewMode);
+    localStorage.setItem("viewMode", viewMode);
   }, [viewMode]);
 
   return (
