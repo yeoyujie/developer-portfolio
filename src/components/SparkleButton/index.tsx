@@ -1,11 +1,15 @@
 import "./component.css";
-import { useEffect } from "react";
 
-export default function SparkleButton() {
+// Adapted from https://codepen.io/jh3y/pen/LYJMPBL
 
+interface SparkleButtonProps {
+  text: string;
+}
+
+export default function SparkleButton({ text }: SparkleButtonProps) {
   return (
-    <div className="sparkle-button">
-      <button>
+    <div className="sparkle-button-container">
+      <button className="sparkle-button">
         <span className="spark"></span>
         <span className="backdrop"></span>
         <svg
@@ -36,7 +40,7 @@ export default function SparkleButton() {
             stroke-linejoin="round"
           />
         </svg>
-        <span className="text">Enter to explore</span>
+        <span className="text">{text}</span>
       </button>
     </div>
   );
