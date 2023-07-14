@@ -28,7 +28,7 @@
   font-weight: 500;
   border: 0;
   cursor: pointer;
-  padding: 1em 3.0em;
+  padding: 1em 3em;
   margin-top: 50px;
   display: flex;
   align-items: center;
@@ -229,19 +229,6 @@ svg {
   to {
     rotate: 360deg;
   }
-}
-
-.text {
-  translate: 2% -6%;
-  letter-spacing: 0.01ch;
-  background: linear-gradient(
-    90deg,
-    hsl(0 0% calc((var(--active) * 100%) + 65%)),
-    hsl(0 0% calc((var(--active) * 100%) + 26%))
-  );
-  -webkit-background-clip: text;
-  color: transparent;
-  transition: background var(--transition);
 }
 
 .sparkle-button svg {

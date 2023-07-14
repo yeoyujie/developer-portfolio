@@ -17,7 +17,7 @@ export default function Home() {
             discover the secrets of my magical craft.
           </p>
           <Link href="/about-me">
-            <SparkleButton text={"Enter if you dare!"}/>
+            <SparkleButton text={"Enter if you dare!"} />
           </Link>
         </section>
       </main>
