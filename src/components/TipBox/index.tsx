@@ -1,20 +1,22 @@
-import "./component.css";
+"use client";
+
+import { useEffect } from "react";
+import "./component.css"
+import Swal from "sweetalert2";
 
 interface TipBoxProps {
   message: string;
-  onClose: () => void;
 }
 
-export default function TipBox({ message, onClose }: TipBoxProps) {
-  return (
-    <div className="modal">
-      <div className="modal-content">
-        <div className="tip-box">
-          <p>{message}</p>
-          <button onClick={onClose}>Close</button>
-        </div>
-      </div>
-    </div>
-  );
-}
+export default function TipBox({ message }: TipBoxProps) {
+  useEffect(() => {
+    Swal.fire({
+      title: "Tip",
+      text: message,
+      icon: "info",
+    });
+  }, []);
 
+  return null;
+
+}

@@ -132,8 +132,7 @@ export default function Games() {
     <div className="flag-container">
       {showTip && (
         <TipBox
-          message="Welcome! This is your first visit. Here's a tip: ..."
-          onClose={handleCloseTip}
+          message="Type the name of the country whose flag is shown. You can also press the Tab key to skip."
         />
       )}
       {gameOver ? (
