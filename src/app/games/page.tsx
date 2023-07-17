@@ -12,6 +12,12 @@ type Country = {
   flag: string;
 };
 
+interface CountryStatus {
+  name: string;
+  flag: string;
+  status: "correct" | "skipped";
+}
+
 export default function Games() {
   const [countries, setCountries] = useState<Country[]>([]);
   const [currentCountry, setCurrentCountry] = useState<Country | null>(null);
@@ -21,6 +27,7 @@ export default function Games() {
   const [timeLeft, setTimeLeft] = useState(60);
   const [gameOver, setGameOver] = useState(false);
   const [showTip, setShowTip] = useState(false);
+  const [countryStatuses, setCountryStatuses] = useState<CountryStatus[]>([]);
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -54,10 +61,6 @@ export default function Games() {
       localStorage.setItem("firstVisit", "false");
     }
   }, []);
-
-  const handleCloseTip = () => {
-    setShowTip(false);
-  };
 
   // Set up timer
   useEffect(() => {
@@ -97,6 +100,14 @@ export default function Games() {
       setIsCorrect(true);
       setScore((score) => score + 100);
       setUserInput("");
+      setCountryStatuses((statuses) => [
+        ...statuses,
+        {
+          name: currentCountry.name,
+          flag: currentCountry.flag,
+          status: "correct",
+        },
+      ]);
       setRandomCountry();
     } else {
       setIsCorrect(false);
@@ -125,15 +136,23 @@ export default function Games() {
   const handleSkip = () => {
     setIsCorrect(false);
     setUserInput("");
+    if (currentCountry) {
+      setCountryStatuses((statuses) => [
+        ...statuses,
+        {
+          name: currentCountry.name,
+          flag: currentCountry.flag,
+          status: "skipped",
+        },
+      ]);
+    }
     setRandomCountry();
   };
 
   return (
     <div className="flag-container">
       {showTip && (
-        <TipBox
-          message="Type the name of the country whose flag is shown. You can also press the Tab key to skip."
-        />
+        <TipBox message="Type the name of the country whose flag is shown. You can also press the Tab key to skip." />
       )}
       {gameOver ? (
         <GameOverScreen score={score} onRetry={handleRetry} />
