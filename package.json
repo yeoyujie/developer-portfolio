@@ -31,6 +31,7 @@
     "react-parallax": "^3.5.1",
     "react-scroll-parallax": "^3.4.2",
     "react-slick": "^0.29.0",
+    "react-step-progress-bar": "^1.0.3",
     "scrollmagic": "^2.0.8",
     "scrollmagic-plugin-gsap": "^1.0.4",
     "slick-carousel": "^1.8.1",

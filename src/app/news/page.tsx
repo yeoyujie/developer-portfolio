@@ -41,17 +41,28 @@ export default function News() {
   });
   const [numArticles, setNumArticles] = useState(50);
 
+  // useEffect(() => {
+  //   const fetchArticles = async () => {
+  //     // Fetch top headlines from News API
+  //     const res = await fetch(
+  //       `https://newsapi.org/v2/top-headlines?country=us&pageSize=50&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
+  //     );
+  //     const NewsApiResponse = await res.json();
+  //     setArticles(NewsApiResponse.articles);
+  //   };
+  //   fetchArticles();
+  // }, []);
+
   useEffect(() => {
     const fetchArticles = async () => {
-      // Fetch top headlines from News API
-      const res = await fetch(
-        `https://newsapi.org/v2/top-headlines?country=us&pageSize=50&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
-      );
-      const NewsApiResponse = await res.json();
-      setArticles(NewsApiResponse.articles);
+      // Fetch top headlines from our API route
+      const res = await fetch("/api/news");
+      const articles = await res.json();
+      setArticles(articles);
     };
     fetchArticles();
   }, []);
+  
 
   // Save viewMode to localStorage
   useEffect(() => {

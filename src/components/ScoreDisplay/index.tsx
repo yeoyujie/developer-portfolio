@@ -7,16 +7,18 @@ interface ScoreDisplayProps {
 
 const ScoreDisplay: React.FC<ScoreDisplayProps> = ({ timeLeft, score }) => {
   return (
-    <div className="score-container">
-      <div className="score-box">
-        <span>Time left</span>
-        <span>{timeLeft}</span>
+    <>
+      <div className="score-container">
+        <div className="score-box">
+          <span>Time left</span>
+          <span>{timeLeft}</span>
+        </div>
+        <div className="score-box">
+          <span>Score</span>
+          <span>{score}</span>
+        </div>
       </div>
-      <div className="score-box">
-        <span>Score</span>
-        <span>{score}</span>
-      </div>
-    </div>
+    </>
   );
 };
 
