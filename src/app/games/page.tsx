@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import ScoreDisplay from "@/components/ScoreDisplay";
 import GameOverScreen from "@/components/GameOverScreen";
@@ -19,6 +19,12 @@ export default function Games() {
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(1);
   const [gameOver, setGameOver] = useState(false);
+
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   useEffect(() => {
     // Fetch list of countries from REST Countries API
@@ -69,7 +75,6 @@ export default function Games() {
     }
   }, [countries]);
 
-
   const checkAnswer = () => {
     if (
       currentCountry &&
@@ -83,15 +88,22 @@ export default function Games() {
       setIsCorrect(false);
     }
   };
-  
+
   useEffect(() => {
     checkAnswer();
   }, [userInput, currentCountry]);
-  
+
   // Handle user submission
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     checkAnswer();
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Tab") {
+      event.preventDefault();
+      handleSkip();
+    }
   };
 
   // Handle skip
@@ -119,9 +131,11 @@ export default function Games() {
               <form onSubmit={handleSubmit}>
                 <div className="webflow-style-input">
                   <input
+                    ref={inputRef}
                     type="text"
                     value={userInput}
                     onChange={(event) => setUserInput(event.target.value)}
+                    onKeyDown={handleKeyDown}
                     className={isCorrect ? "correct" : "incorrect"}
                   />
                   <button type="submit" disabled={gameOver}>
