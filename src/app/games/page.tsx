@@ -70,7 +70,7 @@ export default function Games() {
   }, [countries]);
 
 
-  useEffect(() => {
+  const checkAnswer = () => {
     if (
       currentCountry &&
       userInput.toLowerCase() === currentCountry.name.toLowerCase()
@@ -82,23 +82,16 @@ export default function Games() {
     } else {
       setIsCorrect(false);
     }
+  };
+  
+  useEffect(() => {
+    checkAnswer();
   }, [userInput, currentCountry]);
   
-
   // Handle user submission
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (
-      currentCountry &&
-      userInput.toLowerCase() === currentCountry.name.toLowerCase()
-    ) {
-      setIsCorrect(true);
-      setScore((score) => score + 100);
-      setUserInput("");
-      setRandomCountry();
-    } else {
-      setIsCorrect(false);
-    }
+    checkAnswer();
   };
 
   // Handle skip
