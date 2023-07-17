@@ -69,6 +69,22 @@ export default function Games() {
     }
   }, [countries]);
 
+
+  useEffect(() => {
+    if (
+      currentCountry &&
+      userInput.toLowerCase() === currentCountry.name.toLowerCase()
+    ) {
+      setIsCorrect(true);
+      setScore((score) => score + 100);
+      setUserInput("");
+      setRandomCountry();
+    } else {
+      setIsCorrect(false);
+    }
+  }, [userInput, currentCountry]);
+  
+
   // Handle user submission
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
