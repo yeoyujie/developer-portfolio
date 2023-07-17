@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import ScoreDisplay from "@/components/ScoreDisplay";
 import GameOverScreen from "@/components/GameOverScreen";
+import TipBox from "@/components/TipBox";
 import "./module.css";
 
 type Country = {
@@ -17,14 +18,11 @@ export default function Games() {
   const [userInput, setUserInput] = useState("");
   const [isCorrect, setIsCorrect] = useState(false);
   const [score, setScore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(1);
+  const [timeLeft, setTimeLeft] = useState(60);
   const [gameOver, setGameOver] = useState(false);
+  const [showTip, setShowTip] = useState(false);
 
   const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
 
   useEffect(() => {
     // Fetch list of countries from REST Countries API
@@ -44,6 +42,22 @@ export default function Games() {
     };
     fetchCountries();
   }, []);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  useEffect(() => {
+    const firstVisit = localStorage.getItem("firstVisit");
+    if (!firstVisit) {
+      setShowTip(true);
+      localStorage.setItem("firstVisit", "false");
+    }
+  }, []);
+
+  const handleCloseTip = () => {
+    setShowTip(false);
+  };
 
   // Set up timer
   useEffect(() => {
@@ -99,6 +113,7 @@ export default function Games() {
     checkAnswer();
   };
 
+  // Handle tab key press for skipping
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Tab") {
       event.preventDefault();
@@ -115,6 +130,12 @@ export default function Games() {
 
   return (
     <div className="flag-container">
+      {showTip && (
+        <TipBox
+          message="Welcome! This is your first visit. Here's a tip: ..."
+          onClose={handleCloseTip}
+        />
+      )}
       {gameOver ? (
         <GameOverScreen score={score} onRetry={handleRetry} />
       ) : (
