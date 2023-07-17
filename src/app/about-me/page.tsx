@@ -4,6 +4,8 @@ import { Parallax } from "react-parallax";
 import "./module.css";
 import cityImg from "@/assets/city.png";
 import city2Img from "@/assets/city2.png";
+import sceneryImg from "@/assets/scenery.jpg";
+import scenery2Img from "@/assets/scenery2.jpg";
 import Head from "next/head";
 
 const styles: React.CSSProperties = {
@@ -33,7 +35,7 @@ export default function About() {
       </Head>
       <div style={styles}>
         <Parallax bgImage={cityImg.src} strength={500}>
-          <div style={{ height: 800 }}>
+          <div style={{ height: 1000 }}>
             <div style={insideStyles}>Greetings, traveller.</div>
           </div>
         </Parallax>
@@ -45,8 +47,8 @@ export default function About() {
           portfolio, but also a fantasy world game where you can have fun and
           challenge yourself. Scroll down to find out more!
         </div>
-        <Parallax bgImage={city2Img.src} strength={500}>
-          <div style={{ height: 800 }}>
+        <Parallax bgImage={scenery2Img.src} strength={500}>
+          <div style={{ height: 1000 }}>
             <div style={insideStyles}>Windora, a world of wonder and peril</div>
           </div>
         </Parallax>
@@ -65,8 +67,8 @@ export default function About() {
           monsters are not!! So let’s team up and explore this world. Are you
           ready? Then let’s go!
         </div>
-        <Parallax bgImage={city2Img.src} strength={500}>
-          <div style={{ height: 800 }}>
+        <Parallax bgImage={sceneryImg.src} strength={500}>
+          <div style={{ height: 1000 }}>
             <div style={insideStyles}>Are you ready for the challenge?</div>
           </div>
         </Parallax>
