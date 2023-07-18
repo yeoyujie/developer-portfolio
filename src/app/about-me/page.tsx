@@ -1,12 +1,11 @@
 "use client";
 
 import { Parallax } from "react-parallax";
-import "./module.css";
-import cityImg from "@/assets/city.png";
-import city2Img from "@/assets/city2.png";
+import cityImg from "@/assets/city.jpeg";
 import sceneryImg from "@/assets/scenery.jpg";
-import scenery2Img from "@/assets/scenery2.jpg";
+import fantasyCityImg from "@/assets/fantasy-city.jpg";
 import Head from "next/head";
+import "./module.css";
 
 const styles: React.CSSProperties = {
   fontFamily: "Montserrat, sans-serif",
@@ -31,10 +30,9 @@ export default function About() {
     <>
       <Head>
         <link rel="preload" as="image" href={cityImg.src} />
-        <link rel="preload" as="image" href={city2Img.src} />
       </Head>
       <div style={styles}>
-        <Parallax bgImage={cityImg.src} strength={500}>
+        <Parallax bgImage={cityImg.src} strength={200}>
           <div style={{ height: 1000 }}>
             <div style={insideStyles}>Greetings, traveller.</div>
           </div>
@@ -47,7 +45,7 @@ export default function About() {
           portfolio, but also a fantasy world game where you can have fun and
           challenge yourself. Scroll down to find out more!
         </div>
-        <Parallax bgImage={scenery2Img.src} strength={500}>
+        <Parallax bgImage={fantasyCityImg.src} strength={250}>
           <div style={{ height: 1000 }}>
             <div style={insideStyles}>Windora, a world of wonder and peril</div>
           </div>
@@ -67,7 +65,7 @@ export default function About() {
           monsters are not!! So let’s team up and explore this world. Are you
           ready? Then let’s go!
         </div>
-        <Parallax bgImage={sceneryImg.src} strength={500}>
+        <Parallax bgImage={sceneryImg.src} strength={200}>
           <div style={{ height: 1000 }}>
             <div style={insideStyles}>Are you ready for the challenge?</div>
           </div>
