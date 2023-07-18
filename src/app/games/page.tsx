@@ -5,18 +5,12 @@ import Image from "next/image";
 import ScoreDisplay from "@/components/ScoreDisplay";
 import GameOverScreen from "@/components/GameOverScreen";
 import TipBox from "@/components/TipBox";
+import CountryStatuses from "@/components/CountryStatuses";
+
+import { CountryStatus } from "@/types";
+import { Country } from "@/types";
+
 import "./module.css";
-
-type Country = {
-  name: string;
-  flag: string;
-};
-
-interface CountryStatus {
-  name: string;
-  flag: string;
-  status: "correct" | "skipped";
-}
 
 export default function Games() {
   const [countries, setCountries] = useState<Country[]>([]);
@@ -155,7 +149,10 @@ export default function Games() {
         <TipBox message="Type the name of the country whose flag is shown. You can also press the Tab key to skip." />
       )}
       {gameOver ? (
-        <GameOverScreen score={score} onRetry={handleRetry} />
+        <>
+          <GameOverScreen score={score} onRetry={handleRetry} />
+          <CountryStatuses countryStatuses={countryStatuses} />
+        </>
       ) : (
         <>
           <ScoreDisplay timeLeft={timeLeft} score={score} />
