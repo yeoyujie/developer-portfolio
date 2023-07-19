@@ -18,6 +18,7 @@ export default function Games() {
   const [userInput, setUserInput] = useState("");
   const [isCorrect, setIsCorrect] = useState(false);
   const [score, setScore] = useState(0);
+  const [correctGuesses, setCorrectGuesses] = useState(0);
   const [timeLeft, setTimeLeft] = useState(60);
   const [gameOver, setGameOver] = useState(false);
   const [showTip, setShowTip] = useState(false);
@@ -30,7 +31,7 @@ export default function Games() {
     // Fetch list of countries from REST Countries API
     const fetchCountries = async () => {
       try {
-        const res = await fetch("/api/v3.1/all");
+        const res = await fetch("/api/v3.1/independent?status=true");
         const data = await res.json();
         setCountries(
           data.map((country: any) => ({
@@ -45,10 +46,12 @@ export default function Games() {
     fetchCountries();
   }, []);
 
+  // Effect hook to focus on the input element on component mount
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
 
+  // Effect hook to show tip on first visit
   useEffect(() => {
     const firstVisit = localStorage.getItem("firstVisit");
     if (!firstVisit) {
@@ -59,9 +62,15 @@ export default function Games() {
 
   const setRandomCountry = () => {
     // Filter out countries that have already been displayed
-    const availableCountries = countries.filter(
+    let availableCountries = countries.filter(
       (country) => !usedCountries.has(country.name)
     );
+
+    // If all countries have been used, reset usedCountries and select from full list of countries
+    if (availableCountries.length === 0) {
+      setUsedCountries(new Set());
+      availableCountries = countries;
+    }
 
     // Select a random country from the available countries
     const randomIndex = Math.floor(Math.random() * availableCountries.length);
@@ -98,6 +107,7 @@ export default function Games() {
         },
       ]);
       setRandomCountry();
+      setCorrectGuesses((correctGuesses) => correctGuesses + 1);
     } else {
       setIsCorrect(false);
     }
@@ -125,6 +135,9 @@ export default function Games() {
     setGameOver(false);
     setTimeLeft(60);
     setScore(0);
+    setCorrectGuesses(0);
+    setRandomCountry();
+    setUsedCountries(new Set());
   };
 
   const handleGameOver = () => {
@@ -191,6 +204,9 @@ export default function Games() {
               </form>
               <button onClick={handleSkip} disabled={gameOver}>
                 Skip
+              </button>
+              <button onClick={handleGameOver} disabled={gameOver}>
+                End Game
               </button>
               {isCorrect && <p>Correct!</p>}
             </>

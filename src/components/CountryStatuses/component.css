@@ -1,0 +1,31 @@
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+  background-color: #333;
+  padding: 60px 10px;
+  width: 70%;
+  border-radius: 10px;
+  font-family: var(--font-family);
+}
+
+.country-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  font-size: 48px;
+}
+
+.header-row span,
+.country-row span {
+  flex: 1;
+  text-align: center;
+}
