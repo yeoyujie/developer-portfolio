@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./component.css";
 
 interface ScoreDisplayProps {
@@ -16,20 +16,31 @@ const ScoreDisplay: React.FC<ScoreDisplayProps> = ({
 }) => {
   const timeLeftClass = timeLeft <= 10 ? "time-left-danger" : "";
 
+  const timerIdRef = useRef<number | null>(null);
+
   const [animate, setAnimate] = useState(true);
   const [prevScore, setPrevScore] = useState(0);
 
-  // Set up timer
+  useEffect(() => {
+    // Set up timer
+    timerIdRef.current = window.setInterval(() => {
+      setTimeLeft((timeLeft) => timeLeft - 1);
+    }, 1000);
+
+    // Clean up timer
+    return () => {
+      if (timerIdRef.current !== null) {
+        clearInterval(timerIdRef.current);
+      }
+    };
+  }, []);
+
   useEffect(() => {
     if (timeLeft === 0) {
       onGameOver();
       return;
     }
-    const timerId = setInterval(() => {
-      setTimeLeft((timeLeft) => timeLeft - 1);
-    }, 1000);
-    return () => clearInterval(timerId);
-  }, [timeLeft, setTimeLeft, onGameOver]);
+  }, [timeLeft, onGameOver]);
 
   useEffect(() => {
     setAnimate(true);
