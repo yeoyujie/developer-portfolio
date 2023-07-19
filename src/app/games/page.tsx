@@ -18,10 +18,11 @@ export default function Games() {
   const [userInput, setUserInput] = useState("");
   const [isCorrect, setIsCorrect] = useState(false);
   const [score, setScore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(1);
+  const [timeLeft, setTimeLeft] = useState(60);
   const [gameOver, setGameOver] = useState(false);
   const [showTip, setShowTip] = useState(false);
   const [countryStatuses, setCountryStatuses] = useState<CountryStatus[]>([]);
+  const [usedCountries, setUsedCountries] = useState(new Set());
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -56,27 +57,21 @@ export default function Games() {
     }
   }, []);
 
-  // Set up timer
-  useEffect(() => {
-    if (timeLeft === 0) {
-      setGameOver(true);
-      return;
-    }
-    const timerId = setInterval(() => {
-      setTimeLeft((timeLeft) => timeLeft - 1);
-    }, 1000);
-    return () => clearInterval(timerId);
-  }, [timeLeft]);
-
-  const handleRetry = () => {
-    setGameOver(false);
-    setTimeLeft(60);
-    setScore(0);
-  };
-
   const setRandomCountry = () => {
-    const randomIndex = Math.floor(Math.random() * countries.length);
-    setCurrentCountry(countries[randomIndex]);
+    // Filter out countries that have already been displayed
+    const availableCountries = countries.filter(
+      (country) => !usedCountries.has(country.name)
+    );
+
+    // Select a random country from the available countries
+    const randomIndex = Math.floor(Math.random() * availableCountries.length);
+    const newCountry = availableCountries[randomIndex];
+    setCurrentCountry(newCountry);
+
+    // Add the new country to the set of used countries
+    setUsedCountries((usedCountries) =>
+      new Set(usedCountries).add(newCountry.name)
+    );
   };
 
   useEffect(() => {
@@ -126,6 +121,16 @@ export default function Games() {
     }
   };
 
+  const handleRetry = () => {
+    setGameOver(false);
+    setTimeLeft(60);
+    setScore(0);
+  };
+
+  const handleGameOver = () => {
+    setGameOver(true);
+  };
+
   // Handle skip
   const handleSkip = () => {
     setIsCorrect(false);
@@ -155,7 +160,12 @@ export default function Games() {
         </>
       ) : (
         <>
-          <ScoreDisplay timeLeft={timeLeft} score={score} />
+          <ScoreDisplay
+            timeLeft={timeLeft}
+            setTimeLeft={setTimeLeft}
+            score={score}
+            onGameOver={handleGameOver}
+          />
           {currentCountry && (
             <>
               <Image
