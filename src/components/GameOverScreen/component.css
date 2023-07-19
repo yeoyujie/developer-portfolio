@@ -5,9 +5,9 @@
   font-size: 24px;
   font-weight: bold;
   text-align: center;
+  margin-bottom: 20px;
 }
 
-.retry-button {
-  display: block;
-  margin: 20px auto 0;
+.final-score {
+  padding-bottom: 15px;
 }

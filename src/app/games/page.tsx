@@ -10,6 +10,7 @@ import CountryStatuses from "@/components/CountryStatuses";
 import { CountryStatus } from "@/types";
 import { Country } from "@/types";
 
+import "../../app/bttn.css";
 import "./module.css";
 
 export default function Games() {
@@ -26,6 +27,7 @@ export default function Games() {
   const [usedCountries, setUsedCountries] = useState(new Set());
 
   const inputRef = useRef<HTMLInputElement>(null);
+  const skipButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     // Fetch list of countries from REST Countries API
@@ -202,12 +204,24 @@ export default function Games() {
                   </button>
                 </div>
               </form>
-              <button onClick={handleSkip} disabled={gameOver}>
-                Skip
-              </button>
-              <button onClick={handleGameOver} disabled={gameOver}>
-                End Game
-              </button>
+              <div className="button-row">
+                <button
+                  ref={skipButtonRef}
+                  className="bttn-unite bttn-lg bttn-success wide-button"
+                  onClick={handleSkip}
+                  disabled={gameOver}
+                >
+                  Skip
+                </button>
+                <button
+                  className="bttn-unite bttn-lg bttn-danger wide-button"
+                  onClick={handleGameOver}
+                  disabled={gameOver}
+                  style={{ marginLeft: "50px" }}
+                >
+                  End Game
+                </button>
+              </div>
               {isCorrect && <p>Correct!</p>}
             </>
           )}
