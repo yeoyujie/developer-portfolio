@@ -1,0 +1,13 @@
+/* component.css */
+.game-over-screen {
+  text-align: center;
+  font-family: var(--font-family);
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.retry-button {
+  display: block;
+  margin: 20px auto 0;
+}

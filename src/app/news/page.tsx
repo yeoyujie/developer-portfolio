@@ -39,19 +39,14 @@ export default function News() {
       return "card";
     }
   });
-  const [numArticles, setNumArticles] = useState(50);
-
-  // useEffect(() => {
-  //   const fetchArticles = async () => {
-  //     // Fetch top headlines from News API
-  //     const res = await fetch(
-  //       `https://newsapi.org/v2/top-headlines?country=us&pageSize=50&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
-  //     );
-  //     const NewsApiResponse = await res.json();
-  //     setArticles(NewsApiResponse.articles);
-  //   };
-  //   fetchArticles();
-  // }, []);
+  const [numArticles, setNumArticles] = useState(() => {
+    if (typeof localStorage !== "undefined") {
+      const storedNumArticles = localStorage.getItem("numArticles");
+      return storedNumArticles ? parseInt(storedNumArticles) : 25;
+    } else {
+      return 25;
+    }
+  });
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -62,12 +57,12 @@ export default function News() {
     };
     fetchArticles();
   }, []);
-  
 
   // Save viewMode to localStorage
   useEffect(() => {
     localStorage.setItem("viewMode", viewMode);
-  }, [viewMode]);
+    localStorage.setItem("numArticles", numArticles.toString());
+  }, [viewMode, numArticles]);
 
   return (
     <div>
