@@ -6,6 +6,7 @@
 }
 
 .score-box {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,12 +21,41 @@
 
 .score-box > span:first-of-type {
   font-weight: bold;
+  position: relative;
 }
 
-.score-box > span:last-of-type {
-  font-size: 24px;
+.score-box > .score,
+.score-box > .time-left {
+  font-size: 26px;
+  position: relative;
 }
 
 .time-left-danger {
   color: red;
+}
+
+.large-score {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  color: rgba(255, 255, 255, 0.5);
+  z-index: 2;
+  opacity: 0;
+}
+
+.animate {
+  animation: fadeUp 2s forwards;
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
 }
