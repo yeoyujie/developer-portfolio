@@ -1,8 +1,12 @@
+import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
+
 import "./module.css";
 
 interface Game {
   title: string;
-  thumbnailUrl: string;
+  thumbnailSrc: StaticImageData;
+  href: string;
 }
 
 interface GameGridProps {
@@ -14,10 +18,12 @@ const GameGrid: React.FC<GameGridProps> = ({ games }) => {
     <div className="game-grid">
       {games.map((game) => (
         <div className="game-thumbnail" key={game.title}>
-          <img src={game.thumbnailUrl} alt={game.title} />
-          <div className="game-thumbnail-overlay">
-            <div className="game-thumbnail-title">{game.title}</div>
-          </div>
+          <Link href={game.href} passHref>
+            <Image src={game.thumbnailSrc} alt={game.title} />
+            <div className="game-thumbnail-overlay">
+              <div className="game-thumbnail-title">{game.title}</div>
+            </div>
+          </Link>
         </div>
       ))}
     </div>

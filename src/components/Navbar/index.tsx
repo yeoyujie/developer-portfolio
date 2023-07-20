@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "@/assets/icons/logo.png";
 import LogoNeon from "@/assets/icons/logo neon.png";
 import LogoNeonOutline from "@/assets/icons/logo neon outline.png";
 
