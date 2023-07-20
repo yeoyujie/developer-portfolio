@@ -1,4 +1,7 @@
 import { useState, useEffect, useRef } from "react";
+import IconButton from "@mui/material/IconButton";
+import Info from "@mui/icons-material/Info";
+
 import "./component.css";
 
 interface ScoreDisplayProps {
@@ -6,6 +9,7 @@ interface ScoreDisplayProps {
   setTimeLeft: React.Dispatch<React.SetStateAction<number>>;
   score: number;
   onGameOver: () => void;
+  onShowTipBox: () => void;
 }
 
 const ScoreDisplay: React.FC<ScoreDisplayProps> = ({
@@ -13,6 +17,7 @@ const ScoreDisplay: React.FC<ScoreDisplayProps> = ({
   setTimeLeft,
   score,
   onGameOver,
+  onShowTipBox,
 }) => {
   const timeLeftClass = timeLeft <= 10 ? "time-left-danger" : "";
 
@@ -60,6 +65,18 @@ const ScoreDisplay: React.FC<ScoreDisplayProps> = ({
           <span>Time left</span>
           <span className={`time-left ${timeLeftClass}`}>{timeLeft}</span>
         </div>
+        <IconButton
+          onClick={onShowTipBox}
+          sx={{
+            color: "white", // Change the color of the IconButton
+            "& .MuiSvgIcon-root": {
+              fontSize: "3rem", // Change the size of the Info icon
+            },
+          }}
+        >
+          <Info />
+        </IconButton>
+
         <div className="score-box">
           <span>Score</span>
           <span className="score">{score}</span>

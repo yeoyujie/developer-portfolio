@@ -119,6 +119,14 @@ export default function Games() {
     checkAnswer();
   }, [userInput, currentCountry]);
 
+  const handleShowTipBox = () => {
+    setShowTip(true);
+  };
+
+  const handleHideTipBox = () => {
+    setShowTip(false);
+  };
+
   // Handle user submission
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -166,7 +174,10 @@ export default function Games() {
   return (
     <div className="flag-container">
       {showTip && (
-        <TipBox message="Type the name of the country whose flag is shown. You can also press the Tab key to skip." />
+        <TipBox
+          message="Type the name of the country whose flag is shown. You can also press the Tab key to skip."
+          onHide={handleHideTipBox}
+        />
       )}
       {gameOver ? (
         <>
@@ -180,6 +191,7 @@ export default function Games() {
             setTimeLeft={setTimeLeft}
             score={score}
             onGameOver={handleGameOver}
+            onShowTipBox={handleShowTipBox}
           />
           {currentCountry && (
             <>
@@ -207,7 +219,7 @@ export default function Games() {
               <div className="button-row">
                 <button
                   ref={skipButtonRef}
-                  className="bttn-unite bttn-lg bttn-success wide-button"
+                  className="bttn-jelly bttn-lg bttn-success wide-button"
                   onClick={handleSkip}
                   disabled={gameOver}
                 >

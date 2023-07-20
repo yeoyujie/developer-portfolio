@@ -12,7 +12,7 @@ interface GameOverScreenProps {
 const GameOverScreen: React.FC<GameOverScreenProps> = ({ score, onRetry }) => {
   return (
     <div className="game-over-screen">
-      <Image src={gameOverImage} alt="Game Over" width={500} height={400} />
+      <Image src={gameOverImage} alt="Game Over" width={600} height={500} />
       <p className="final-score">Your final score is: {score}</p>
       <button
         className="bttn-jelly bttn-lg bttn-default block-button"
