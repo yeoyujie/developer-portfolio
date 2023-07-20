@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import ScoreDisplay from "@/components/ScoreDisplay";
 import GameOverScreen from "@/components/GameOverScreen";
-import TipBox from "@/components/TipBox";
+import { TipBox, WarningBox } from "@/components/MessageBoxes";
 import CountryStatuses from "@/components/CountryStatuses";
 
 import { CountryStatus } from "@/types";
@@ -22,7 +22,10 @@ export default function GuessTheCountry() {
   const [correctGuesses, setCorrectGuesses] = useState(0);
   const [timeLeft, setTimeLeft] = useState(60);
   const [gameOver, setGameOver] = useState(false);
+
   const [showTip, setShowTip] = useState(false);
+  const [showWarning, setShowWarning] = useState(false);
+
   const [countryStatuses, setCountryStatuses] = useState<CountryStatus[]>([]);
   const [usedCountries, setUsedCountries] = useState(new Set());
 
@@ -179,6 +182,18 @@ export default function GuessTheCountry() {
           onHide={handleHideTipBox}
         />
       )}
+      {showWarning && (
+        <WarningBox
+          message="Do you really want to end the game?"
+          onConfirm={() => {
+            setShowWarning(false);
+            setGameOver(true);
+          }}
+          onCancel={() => {
+            setShowWarning(false);
+          }}
+        />
+      )}
       {gameOver ? (
         <>
           <GameOverScreen score={score} onRetry={handleRetry} />
@@ -227,7 +242,9 @@ export default function GuessTheCountry() {
                 </button>
                 <button
                   className="bttn-unite bttn-lg bttn-danger wide-button"
-                  onClick={handleGameOver}
+                  onClick={() => {
+                    setShowWarning(true);
+                  }}
                   disabled={gameOver}
                   style={{ marginLeft: "50px" }}
                 >

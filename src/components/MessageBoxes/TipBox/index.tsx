@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import Swal from "sweetalert2";
 
-import "./component.css";
+import "../component.css";
 
 interface TipBoxProps {
   message: string;
