@@ -1,4 +1,6 @@
-export const courses = [
+import { Course } from "@/types";
+
+export const courses: Course[] = [
   {
     code: "CS2040S",
     name: "Data Structures and Algorithms",

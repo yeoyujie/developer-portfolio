@@ -34,3 +34,14 @@ export interface Course {
   name: string;
   description: string;
 }
+
+export interface Experience {
+  title: string;
+  company: string;
+  description: string;
+}
+
+export interface Hackathon {
+  name: string;
+  description: string[];
+}

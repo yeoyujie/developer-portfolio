@@ -1,7 +1,26 @@
+.work-experience,
+.hackathon-experience {
+  height: 35vh;
+}
+
+.hackathon-experience {
+  display: flex;
+  padding: 20px;
+}
+
+.module-header {
+  height: 20vh;
+  padding-left: 40px;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  display: flex;
+  background: #705478;
+}
+
 .module-section {
   display: flex;
   height: 600vh;
-  font-family: var(--font-family);
 }
 
 .left,
@@ -15,7 +34,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: lightblue;
+  background: linear-gradient(to bottom, #ee9ca7, #ffdde1);
 }
 
 .title {
@@ -25,49 +44,48 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  font-size: 24px;
+  font-size: 48px;
 }
 
-.description {
+.course-description {
   font-size: 24px;
   width: 80%;
   line-height: 30px;
 }
 
 .title:nth-child(1) {
-  background-color: aliceblue;
+  background: linear-gradient(to top, #a3aab7, #4286f4);
 }
 .title:nth-child(2) {
-  background-color: aquamarine;
+  background: linear-gradient(to top, #12c2e9, #c471ed, #f64f59);
 }
 
 .title:nth-child(3) {
-  background-color: azure;
+  background: linear-gradient(to top, #aa4b6b, #6b6b83, #3b8d99);
 }
 
 .title:nth-child(4) {
-  background-color: aliceblue;
+  background: linear-gradient(to bottom, #3e5151, #decba4);
 }
 .title:nth-child(5) {
-  background-color: aquamarine;
+  background: linear-gradient(to bottom, #355c7d, #6c5b7b, #c06c84);
 }
 
 .title:nth-child(6) {
-  background-color: azure;
+  background: linear-gradient(to bottom, #654ea3, #eaafc8);
 }
 
 .course-footer {
-  height: 30vh;
+  height: 15vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: beige;
-  font-family: var(--font-family);
+  background: #705478;
 }
 
 .course-footer > p {
-  width: 80%;
-  font-size: 24px;
+  width: 90%;
+  font-size: 20px;
 }
 
 .course-name {

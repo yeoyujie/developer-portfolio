@@ -1,27 +1,12 @@
 "use client";
 
-import WelcomeSection from "@/components/WelcomeSection";
 import { useEffect } from "react";
 import ScrollMagic from "scrollmagic";
-import { courses } from "@/data/courses";
+import WelcomeSection from "@/components/WelcomeSection";
+import { experiences, hackathons, courses } from "@/data";
 import "./module.css";
 
 export default function Experience() {
-  // useEffect(() => {
-  //   const splitScroll = () => {
-  //     const controller = new ScrollMagic.Controller();
-
-  //     new ScrollMagic.Scene({
-  //       duration: "200%",
-  //       triggerElement: ".left",
-  //       triggerHook: 0,
-  //     })
-  //       .setPin(".left")
-  //       .addTo(controller);
-  //   };
-  //   splitScroll();
-  // }, []);
-
   useEffect(() => {
     const splitScroll = () => {
       const controller = new ScrollMagic.Controller();
@@ -32,6 +17,14 @@ export default function Experience() {
         triggerHook: 0,
       })
         .setPin(".left")
+        .addTo(controller);
+
+      new ScrollMagic.Scene({
+        duration: "100%",
+        triggerElement: ".left",
+        triggerHook: 1,
+      })
+        .setClassToggle(".left", `course-0`)
         .addTo(controller);
 
       courses.forEach((course, index) => {
@@ -51,8 +44,40 @@ export default function Experience() {
   return (
     <>
       <WelcomeSection />
+      <header>
+        <h1>Experience</h1>
+      </header>
+      <section className="work-experience">
+        {experiences.map((experience) => (
+          <div key={experience.title} className="">
+            <h1>{experience.title}</h1>
+            <h3>{experience.company}</h3>
+            <p className="description">{experience.description}</p>
+          </div>
+        ))}
+      </section>
+      <section className="hackathon-experience">
+        {hackathons.map((hackathon) => (
+          <div key={hackathon.name} className="">
+            <h1>{hackathon.name}</h1>
+            <ul className="description">
+              {hackathon.description.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+      <header>
+        <div className="module-header">
+          <h1>Courses Taken</h1>
+          <p>
+            Here are some of the courses I took and the skills I learned from
+            them.
+          </p>
+        </div>
+      </header>
       <section className="module-section">
-        {/* <div className="left">Courses Taken</div> */}
         <div className="left">
           {courses.map((course, index) => (
             <h1 className={`course-name course-${index}`}>{course.name}</h1>
@@ -62,7 +87,7 @@ export default function Experience() {
           {courses.map((course) => (
             <div key={course.code} className="title">
               <h1>{course.code}</h1>
-              <p className="description">{course.description}</p>
+              <p className="course-description">{course.description}</p>
             </div>
           ))}
         </div>
