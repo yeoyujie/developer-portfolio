@@ -29,7 +29,7 @@
 }
 
 .description {
-  font-size: 18px;
+  font-size: 24px;
   width: 80%;
   line-height: 30px;
 }
@@ -57,7 +57,7 @@
 }
 
 .course-footer {
-  height: 60vh;
+  height: 30vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,4 +68,17 @@
 .course-footer > p {
   width: 80%;
   font-size: 24px;
+}
+
+.course-name {
+  display: none;
+}
+
+.left.course-0 .course-0,
+.left.course-1 .course-1,
+.left.course-2 .course-2,
+.left.course-3 .course-3,
+.left.course-4 .course-4,
+.left.course-5 .course-5 {
+  display: block;
 }

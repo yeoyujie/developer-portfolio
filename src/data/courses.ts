@@ -9,7 +9,7 @@ export const courses = [
     code: "CS2103T",
     name: "Software Engineering",
     description:
-      "Software Engineering - Applied software engineering principles and practices to develop a desktop application using JavaFX and Gradle. Used tools such as GitHub and IntelliJ IDEA for version control, testing, and continuous integration.",
+      "Applied software engineering principles and practices to develop a desktop application using JavaFX and Gradle. Used tools such as GitHub and IntelliJ IDEA for version control, testing, and continuous integration.",
   },
   {
     code: "CS2105",
