@@ -1,90 +1,71 @@
-.image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.module-section {
+  display: flex;
+  height: 600vh;
+  font-family: var(--font-family);
 }
 
-.container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  padding: 1000px;
+.left,
+.right {
+  width: 50%;
+}
+
+.left {
+  font-size: 30px;
+  height: 100vh;
+  display: flex;
   justify-content: center;
   align-items: center;
+  background-color: lightblue;
 }
 
-/* .container::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  background-color: linear-gradient(to top, #1c0522, transparent);
-} */
-
-#moon {
-  mix-blend-mode: screen;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 20;
-  width: 20%;
-  height: 20%;
-  z-index: 3;
+.title {
+  height: 100vh;
+  background-color: lightgreen;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 24px;
 }
 
-#star {
-  mix-blend-mode: screen;
-  width: 100%;
-  height: 40%;
+.description {
+  font-size: 18px;
+  width: 80%;
+  line-height: 30px;
 }
 
-#mountains {
-  height: 70%;
-  width: 100%;
-  z-index: 5;
+.title:nth-child(1) {
+  background-color: aliceblue;
+}
+.title:nth-child(2) {
+  background-color: aquamarine;
 }
 
-#peak {
-  z-index: 10;
+.title:nth-child(3) {
+  background-color: azure;
 }
 
-#text {
-  position: absolute;
-  color: white;
-  font-size: 7.5rem;
-  z-index: 9;
+.title:nth-child(4) {
+  background-color: aliceblue;
+}
+.title:nth-child(5) {
+  background-color: aquamarine;
 }
 
-.text {
-  position: absolute;
-  color: #fff;
-  white-space: nowrap;
-  z-index: 80;
-  top: 25%;
-  left: 50%;
-  transform: translateX(-50%);
+.title:nth-child(6) {
+  background-color: azure;
 }
 
-.exp-section {
-  position: relative;
-  padding: 300px;
-  background: #1c0522;
+.course-footer {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: beige;
+  font-family: var(--font-family);
 }
 
-.exp-section h2 {
-  font-size: 3.5em;
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-.exp-section h3 {
-  color: #fff;
-}
-
-.exp-section p {
-  color: #fff;
-  font-size: 1.5em;
-  line-height: 1.5em;
+.course-footer > p {
+  width: 80%;
+  font-size: 24px;
 }

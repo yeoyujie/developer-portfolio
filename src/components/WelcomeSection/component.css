@@ -55,6 +55,7 @@
   top: 25%;
   left: 50%;
   transform: translateX(-50%);
+  transition: text-shadow 0.5s ease;
 }
 
 .text:hover {

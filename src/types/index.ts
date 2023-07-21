@@ -28,3 +28,9 @@ export interface Source {
   id: string;
   name: string;
 }
+
+export interface Course {
+  code: string;
+  name: string;
+  description: string;
+}
