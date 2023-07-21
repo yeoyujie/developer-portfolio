@@ -5,11 +5,18 @@
 
 .hackathon-experience {
   display: flex;
-  padding: 20px;
+}
+
+.hackathon-experience > div {
+  margin: 30px;
+}
+
+.hackathon-description li {
+  margin-bottom: 10px;
 }
 
 .module-header {
-  height: 20vh;
+  height: 15vh;
   padding-left: 40px;
   align-items: center;
   justify-content: space-around;

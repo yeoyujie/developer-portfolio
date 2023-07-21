@@ -52,7 +52,7 @@ export default function Experience() {
           <div key={experience.title} className="">
             <h1>{experience.title}</h1>
             <h3>{experience.company}</h3>
-            <p className="description">{experience.description}</p>
+            <p className="work-description">{experience.description}</p>
           </div>
         ))}
       </section>
@@ -60,7 +60,7 @@ export default function Experience() {
         {hackathons.map((hackathon) => (
           <div key={hackathon.name} className="">
             <h1>{hackathon.name}</h1>
-            <ul className="description">
+            <ul className="hackathon-description">
               {hackathon.description.map((point) => (
                 <li key={point}>{point}</li>
               ))}
