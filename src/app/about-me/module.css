@@ -5,9 +5,8 @@
   font-family: var(--font-family);
 }
 
-.paragraph h1{
+.paragraph h1 {
   padding-top: 36px;
   padding-bottom: 8px;
   text-align: center;
-
 }

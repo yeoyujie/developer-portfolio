@@ -1,6 +1,9 @@
 "use client";
 
 import { Parallax } from "react-parallax";
+import { useEffect } from "react";
+import gsap from "gsap";
+
 import cityImg from "@/assets/city.jpeg";
 import sceneryImg from "@/assets/scenery.jpg";
 import fantasyCityImg from "@/assets/fantasy-city.jpg";
@@ -26,6 +29,46 @@ const insideStyles: React.CSSProperties = {
 };
 
 export default function About() {
+  useEffect(() => {
+    const handleScroll = () => {
+      // Determine the percentage of the page that has been scrolled
+      const scrollY = window.scrollY;
+      const windowHeight = document.documentElement.clientHeight;
+      const bodyHeight = document.body.scrollHeight - windowHeight;
+      const scrollPercentage = scrollY / bodyHeight;
+
+      // Update the background color based on the scroll position
+      if (scrollPercentage < 0.25) {
+        gsap.to(document.body, {
+          backgroundImage: "linear-gradient(to bottom, #2f242c, #ac5234)",
+          duration: 0.8,
+        });
+      } else if (scrollPercentage < 0.75) {
+        gsap.to(document.body, {
+          backgroundImage: "linear-gradient(to right, #bbd2e9, #4b3e39)",
+          duration: 0.8,
+        });
+      } else {
+        gsap.to(document.body, {
+          backgroundImage: "linear-gradient(to right, #a0381a, #2f283f)",
+          duration: 0.8,
+        });
+      }
+    };
+
+    // Call handleScroll once to set the initial background gradient
+    handleScroll();
+
+    // Add the scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Remove the event listener and reset the background gradient on cleanup
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.body.style.backgroundImage = "";
+    };
+  }, []);
+
   return (
     <>
       <Head>
@@ -70,6 +113,7 @@ export default function About() {
             <div style={insideStyles}>Are you ready for the challenge?</div>
           </div>
         </Parallax>
+        <div style={{ padding: 50 }}></div>
       </div>
     </>
   );

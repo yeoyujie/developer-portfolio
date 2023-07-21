@@ -19,6 +19,7 @@ body {
   min-height: 100vh;
   background: linear-gradient(#2b1055, #7597de);
   scroll-behavior: smooth;
+  transition: background-color 3s ease;
 }
 
 a {

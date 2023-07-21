@@ -1,31 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { ViewControls } from "@/components/ViewControls";
 import { CardView } from "@/components/CardView";
 import { TableView } from "@/components/TableView";
-
-interface NewsApiResponse {
-  status: string;
-  totalResults: number;
-  articles: Article[];
-}
-
-interface Article {
-  source: Source;
-  author: string;
-  title: string;
-  description: string;
-  url: string;
-  urlToImage: string;
-  publishedAt: string;
-  content: string;
-}
-
-interface Source {
-  id: string;
-  name: string;
-}
+import { Article, Source } from "@/types";
 
 type ViewMode = "card" | "tab";
 
@@ -63,6 +42,15 @@ export default function News() {
     localStorage.setItem("viewMode", viewMode);
     localStorage.setItem("numArticles", numArticles.toString());
   }, [viewMode, numArticles]);
+
+  useLayoutEffect(() => {
+    document.body.style.background = "linear-gradient(#203a43, #2c5364)";
+
+    // Reset the background color on cleanup
+    return () => {
+      document.body.style.background = "";
+    };
+  }, []);
 
   return (
     <div>
