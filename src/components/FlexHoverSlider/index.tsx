@@ -64,7 +64,7 @@ const FlexHoverSlider: React.FC = () => {
           </div>
         </div>
         <div
-          className="flex-slide background-image"
+          className="flex-slide "
           style={{
             background: `url(${greyHatsCtfImg.src})`,
             backgroundSize: "cover",
@@ -76,7 +76,7 @@ const FlexHoverSlider: React.FC = () => {
           </div>
         </div>
         <div
-          className="flex-slide background-image"
+          className="flex-slide "
           style={{
             background: `url(${cddcImg.src})`,
             backgroundSize: "cover",
@@ -88,7 +88,7 @@ const FlexHoverSlider: React.FC = () => {
           </div>
         </div>
         <div
-          className="flex-slide background-image"
+          className="flex-slide "
           style={{
             background: `url(${cddcImg.src})`,
             backgroundSize: "cover",

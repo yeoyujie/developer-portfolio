@@ -5,6 +5,7 @@
   display: -webkit-flex;
   display: flex;
   overflow: hidden;
+  font-size: 20px;
 }
 
 .flex-title {
@@ -60,10 +61,4 @@
 .flex-slide:hover {
   -webkit-flex-grow: 3;
   flex-grow: 3;
-}
-
-.background-image {
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
 }
