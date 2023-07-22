@@ -10,8 +10,8 @@ import mountainsImg from "@/assets/mountains.png";
 import slowShootingStar from "@/assets/slowshootingstar.json";
 import Lottie from "lottie-react";
 
-import FlashingStars from "@/components/FlashingStars";
-import ShootingStars from "@/components/ShootingStars";
+import FlashingStars from "@/components/NightSkyParallax/FlashingStars";
+import ShootingStars from "@/components/NightSkyParallax/ShootingStars";
 import "./component.css";
 
 export default function WelcomeSection() {
