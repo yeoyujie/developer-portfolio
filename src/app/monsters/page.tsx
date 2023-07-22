@@ -1,3 +1,9 @@
+import FlexHoverSlider from "@/components/FlexHoverSlider";
+
 export default function Monsters() {
-  return <div></div>;
+  return (
+    <div>
+      <FlexHoverSlider></FlexHoverSlider>
+    </div>
+  );
 }

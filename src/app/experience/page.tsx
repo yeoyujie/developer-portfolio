@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import ScrollMagic from "scrollmagic";
 import WelcomeSection from "@/components/WelcomeSection";
+import FlexHoverSlider from "@/components/FlexHoverSlider";
 import { experiences, hackathons, courses } from "@/data";
 import "./module.css";
 
@@ -56,6 +57,8 @@ export default function Experience() {
           </div>
         ))}
       </section>
+      <FlexHoverSlider />
+      <div style={{ padding: 500 }}></div>
       <section className="hackathon-experience">
         {hackathons.map((hackathon) => (
           <div key={hackathon.name} className="">
