@@ -5,45 +5,46 @@ import ScrollMagic from "scrollmagic";
 import WelcomeSection from "@/components/WelcomeSection";
 import FlexHoverSlider from "@/components/FlexHoverSlider";
 import { experiences, hackathons, courses } from "@/data";
+
 import "./module.css";
 
 export default function Experience() {
   
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const splitScroll = () => {
-        const controller = new ScrollMagic.Controller();
+  // useEffect(() => {
+  //   if (typeof window !== 'undefined') {
+  //     const splitScroll = () => {
+  //       const controller = new ScrollMagic.Controller();
   
-        new ScrollMagic.Scene({
-          duration: "500%",
-          triggerElement: ".left",
-          triggerHook: 0,
-        })
-          .setPin(".left")
-          .addTo(controller);
+  //       new ScrollMagic.Scene({
+  //         duration: "500%",
+  //         triggerElement: ".left",
+  //         triggerHook: 0,
+  //       })
+  //         .setPin(".left")
+  //         .addTo(controller);
   
-        new ScrollMagic.Scene({
-          duration: "100%",
-          triggerElement: ".left",
-          triggerHook: 1,
-        })
-          .setClassToggle(".left", `course-0`)
-          .addTo(controller);
+  //       new ScrollMagic.Scene({
+  //         duration: "100%",
+  //         triggerElement: ".left",
+  //         triggerHook: 1,
+  //       })
+  //         .setClassToggle(".left", `course-0`)
+  //         .addTo(controller);
   
-        courses.forEach((course, index) => {
-          new ScrollMagic.Scene({
-            duration: "100%",
-            triggerElement: ".right",
-            triggerHook: 0,
-            offset: index * window.innerHeight,
-          })
-            .setClassToggle(".left", `course-${index}`)
-            .addTo(controller);
-        });
-      };
-      splitScroll();
-    }
-  }, []);
+  //       courses.forEach((course, index) => {
+  //         new ScrollMagic.Scene({
+  //           duration: "100%",
+  //           triggerElement: ".right",
+  //           triggerHook: 0,
+  //           offset: index * window.innerHeight,
+  //         })
+  //           .setClassToggle(".left", `course-${index}`)
+  //           .addTo(controller);
+  //       });
+  //     };
+  //     splitScroll();
+  //   }
+  // }, []);
 
   return (
     <>
