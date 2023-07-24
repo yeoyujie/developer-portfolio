@@ -11,7 +11,7 @@
 .flex-title {
   color: #f1f1f1;
   position: relative;
-  font-size: 6vw;
+  font-size: 2vw;
   margin: auto;
   text-align: center;
   transform: rotate(90deg);
@@ -25,10 +25,10 @@
 
 .flex-about {
   opacity: 0;
-  color: #f1f1f1;
+  background-color: rgb(75, 75, 75);
   position: relative;
   width: 70%;
-  font-size: 2vw;
+  font-size: 1vw;
   padding: 5%;
   top: 20%;
   border: 2px solid #f1f1f1;

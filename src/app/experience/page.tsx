@@ -58,19 +58,7 @@ export default function Experience() {
         ))}
       </section>
       <FlexHoverSlider />
-      <div style={{ padding: 500 }}></div>
-      <section className="hackathon-experience">
-        {hackathons.map((hackathon) => (
-          <div key={hackathon.name} className="">
-            <h1>{hackathon.name}</h1>
-            <ul className="hackathon-description">
-              {hackathon.description.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </section>
+      <div style={{ padding: 700 }}></div>
       <header>
         <div className="module-header">
           <h1>Courses Taken</h1>

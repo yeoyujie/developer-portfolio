@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 //guess the country
 export interface CountryStatus {
   name: string;
@@ -43,5 +45,6 @@ export interface Experience {
 
 export interface Hackathon {
   name: string;
+  backgroundImg: StaticImageData;
   description: string[];
 }

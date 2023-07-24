@@ -1,10 +1,9 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import cddcImg from "@/assets/hackathons/cddc.png";
-import brainHackImg from "@/assets/hackathons/brainhack.jpg";
-import greyHatsCtfImg from "@/assets/hackathons/greyhatsctf.jpeg";
+import { hackathons } from "@/data";
 
+import { Hackathon } from "@/types";
 import "./component.css";
 
 const FlexHoverSlider: React.FC = () => {
@@ -51,54 +50,24 @@ const FlexHoverSlider: React.FC = () => {
   return (
     <>
       <div className="flex-container" ref={containerRef}>
-        <div
-          className="flex-slide background-image"
-          style={{
-            background: `url(${cddcImg.src})`,
-            backgroundSize: "cover",
-          }}
-        >
-          <div className="flex-title ">Home</div>
-          <div className="flex-about">
-            <p>Click here to navigate to the home section of the website</p>
+        {hackathons.map((hackathon: Hackathon) => (
+          <div
+            className="flex-slide background-image"
+            style={{
+              background: `url(${hackathon.backgroundImg.src})`,
+              backgroundSize: "cover",
+            }}
+          >
+            <div className="flex-title">{hackathon.name}</div>
+            <div className="flex-about">
+              <ul className="hackathon-description">
+                {hackathon.description.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-        <div
-          className="flex-slide "
-          style={{
-            background: `url(${greyHatsCtfImg.src})`,
-            backgroundSize: "cover",
-          }}
-        >
-          <div className="flex-title">About</div>
-          <div className="flex-about">
-            <p>Click here to navigate to the About section of the website</p>
-          </div>
-        </div>
-        <div
-          className="flex-slide "
-          style={{
-            background: `url(${cddcImg.src})`,
-            backgroundSize: "cover",
-          }}
-        >
-          <div className="flex-title">Work</div>
-          <div className="flex-about">
-            <p>Listing relevant snippets of work</p>
-          </div>
-        </div>
-        <div
-          className="flex-slide "
-          style={{
-            background: `url(${cddcImg.src})`,
-            backgroundSize: "cover",
-          }}
-        >
-          <div className="flex-title">Contact</div>
-          <div className="flex-about">
-            <p>Listing relevant snippets of work</p>
-          </div>
-        </div>
+        ))}
       </div>
     </>
   );
