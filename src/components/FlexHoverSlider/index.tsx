@@ -61,7 +61,7 @@ const FlexHoverSlider: React.FC<FlexHoverSliderProps> = ({ items }) => {
           >
             <div className="flex-title">{item.name}</div>
             <div className="flex-about">
-              <ul className="hackathon-description">
+              <ul className="flex-description">
                 {item.description.map((point: any) => (
                   <li key={point}>{point}</li>
                 ))}

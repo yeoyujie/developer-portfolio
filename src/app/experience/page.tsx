@@ -61,7 +61,6 @@ export default function Experience() {
         ))}
       </section>
       <FlexHoverSlider items={hackathons} />
-      <div style={{ padding: 480 }}></div>
       <header>
         <div className="module-header">
           <h1>Courses Taken</h1>
