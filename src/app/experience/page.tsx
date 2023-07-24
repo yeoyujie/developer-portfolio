@@ -5,46 +5,48 @@ import ScrollMagic from "scrollmagic";
 import WelcomeSection from "@/components/WelcomeSection";
 import FlexHoverSlider from "@/components/FlexHoverSlider";
 import { experiences, hackathons, courses } from "@/data";
-
 import "./module.css";
 
 export default function Experience() {
-  
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     const splitScroll = () => {
-  //       const controller = new ScrollMagic.Controller();
-  
-  //       new ScrollMagic.Scene({
-  //         duration: "500%",
-  //         triggerElement: ".left",
-  //         triggerHook: 0,
-  //       })
-  //         .setPin(".left")
-  //         .addTo(controller);
-  
-  //       new ScrollMagic.Scene({
-  //         duration: "100%",
-  //         triggerElement: ".left",
-  //         triggerHook: 1,
-  //       })
-  //         .setClassToggle(".left", `course-0`)
-  //         .addTo(controller);
-  
-  //       courses.forEach((course, index) => {
-  //         new ScrollMagic.Scene({
-  //           duration: "100%",
-  //           triggerElement: ".right",
-  //           triggerHook: 0,
-  //           offset: index * window.innerHeight,
-  //         })
-  //           .setClassToggle(".left", `course-${index}`)
-  //           .addTo(controller);
-  //       });
-  //     };
-  //     splitScroll();
-  //   }
-  // }, []);
+  useEffect(() => {
+    // Check if the window object is available before calling the splitScroll function.
+    // This is necessary because the ScrollMagic library is a client-side library that relies on the window object,
+    // which is not available during server-side rendering or prerendering.
+    const splitScroll = async () => {
+      if (typeof window !== undefined) {
+        const ScrollMagic = (await import("scrollmagic")).default;
+        const controller = new ScrollMagic.Controller();
+
+        new ScrollMagic.Scene({
+          duration: "500%",
+          triggerElement: ".left",
+          triggerHook: 0,
+        })
+          .setPin(".left")
+          .addTo(controller);
+
+        new ScrollMagic.Scene({
+          duration: "100%",
+          triggerElement: ".left",
+          triggerHook: 1,
+        })
+          .setClassToggle(".left", `course-0`)
+          .addTo(controller);
+
+        courses.forEach((course, index) => {
+          new ScrollMagic.Scene({
+            duration: "100%",
+            triggerElement: ".right",
+            triggerHook: 0,
+            offset: index * window.innerHeight,
+          })
+            .setClassToggle(".left", `course-${index}`)
+            .addTo(controller);
+        });
+      }
+    };
+    splitScroll();
+  }, []);
 
   return (
     <>
