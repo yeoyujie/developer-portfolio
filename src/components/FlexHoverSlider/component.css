@@ -21,6 +21,8 @@
   -ms-transition: all 500ms ease;
   -o-transition: all 500ms ease;
   transition: all 500ms ease;
+  width: 350px;
+  font-weight: bold;
 }
 
 .flex-about {
@@ -45,6 +47,7 @@
 }
 
 .flex-slide {
+  /* opacity: 0.9; */
   -webkit-flex: 1;
   /* Safari 6.1+ */
   -ms-flex: 1;
@@ -61,4 +64,8 @@
 .flex-slide:hover {
   -webkit-flex-grow: 3;
   flex-grow: 3;
+}
+
+body {
+  /* background: rgba(0, 0, 0, 0.8); */
 }

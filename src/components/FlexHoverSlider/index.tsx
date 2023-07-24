@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { hackathons } from "@/data";
-
-import { Hackathon } from "@/types";
 import "./component.css";
 
-const FlexHoverSlider: React.FC = () => {
+interface FlexHoverSliderProps {
+  items: any[];
+}
+
+const FlexHoverSlider: React.FC<FlexHoverSliderProps> = ({ items }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -50,18 +51,18 @@ const FlexHoverSlider: React.FC = () => {
   return (
     <>
       <div className="flex-container" ref={containerRef}>
-        {hackathons.map((hackathon: Hackathon) => (
+        {items.map((item) => (
           <div
-            className="flex-slide background-image"
+            className="flex-slide"
             style={{
-              background: `url(${hackathon.backgroundImg.src})`,
+              background: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${item.backgroundImg.src})`,
               backgroundSize: "cover",
             }}
           >
-            <div className="flex-title">{hackathon.name}</div>
+            <div className="flex-title">{item.name}</div>
             <div className="flex-about">
               <ul className="hackathon-description">
-                {hackathon.description.map((point) => (
+                {item.description.map((point: any) => (
                   <li key={point}>{point}</li>
                 ))}
               </ul>

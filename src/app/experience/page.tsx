@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import ScrollMagic from "scrollmagic";
-import WelcomeSection from "@/components/WelcomeSection";
 import FlexHoverSlider from "@/components/FlexHoverSlider";
 import { experiences, hackathons, courses } from "@/data";
 import "./module.css";
@@ -50,7 +48,6 @@ export default function Experience() {
 
   return (
     <>
-      <WelcomeSection />
       <header>
         <h1>Experience</h1>
       </header>
@@ -63,8 +60,8 @@ export default function Experience() {
           </div>
         ))}
       </section>
-      <FlexHoverSlider />
-      <div style={{ padding: 700 }}></div>
+      <FlexHoverSlider items={hackathons} />
+      <div style={{ padding: 480 }}></div>
       <header>
         <div className="module-header">
           <h1>Courses Taken</h1>

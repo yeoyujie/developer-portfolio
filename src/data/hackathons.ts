@@ -2,11 +2,11 @@ import { Hackathon } from "@/types";
 import lifeHackImg from "@/assets/hackathons/lifehack.jpg";
 import greyHatsCtfImg from "@/assets/hackathons/greyhatsctf.jpeg";
 import brainHackImg from "@/assets/hackathons/brainhack.jpg";
-import cddcImg from "@/assets/hackathons/cddc.jpg";
+import brainHack2021Img from "@/assets/hackathons/brainhack2021.jpg";
 
 export const hackathons: Hackathon[] = [
   {
-    name: "Lifehack 2023 - Finalist",
+    name: "Lifehack 2023",
     backgroundImg: lifeHackImg,
     description: [
       `Built RaceSG, a race-meets-geocaching app that unlocks the hidden wonders of Singapore for locals and tourists alike, in response to the theme of “Re-defining the Post-Pandemic Traveling Landscape”.`,
@@ -24,7 +24,7 @@ export const hackathons: Hackathon[] = [
     ],
   },
   {
-    name: "DSTA Brainhack CODE_EXP 2021 - Finalist",
+    name: "DSTA Brainhack CODE_EXP 2021",
     backgroundImg: brainHackImg,
     description: [
       `Built a mobile app using React Native, Firebase, and other technologies, as part of a team of four, in response to the theme of “Reimagining the Future of Singapore”.`,
@@ -35,7 +35,7 @@ export const hackathons: Hackathon[] = [
   },
   {
     name: "DSTA Brainhack CDDC 2021",
-    backgroundImg: cddcImg,
+    backgroundImg: brainHack2021Img,
     description: [
       `Took part in a Capture The Flag (CTF) competition organized by DSTA, as part of BrainHack 2021.`,
       `I attempted various tasks involving web, pwn, crypto, reverse engineering, and forensics domains and gained valuable insights into the field of cybersecurity. I also learned various Unix skills/commands that enhanced my proficiency in shell scripting and complemented my internship experience back then.`,

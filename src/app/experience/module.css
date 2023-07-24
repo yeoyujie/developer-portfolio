@@ -1,5 +1,4 @@
-.work-experience,
-.hackathon-experience {
+.work-experience {
   height: 35vh;
 }
 
@@ -118,4 +117,6 @@
 .left.course-4 .course-4,
 .left.course-5 .course-5 {
   display: block;
+  justify-content: center;
+  text-align: center;
 }
