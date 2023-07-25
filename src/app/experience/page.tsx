@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import Image from "next/image";
 import FlexHoverSlider from "@/components/FlexHoverSlider";
 import { experiences, hackathons, courses } from "@/data";
 import cyberImg from "@/assets/cyber.jpg";
@@ -50,7 +49,6 @@ export default function Experience() {
 
   return (
     <>
-      <FlexHoverSlider items={hackathons} />
       <section
         className="work-experience"
         style={{
@@ -61,10 +59,31 @@ export default function Experience() {
       >
         {experiences.map((experience, index) => (
           <>
-            <div key={experience.title} className="experience-container">
-              <h1>{experience.title}</h1>
-              <h3>{experience.company}</h3>
-              <ul className="work-description">
+            <div
+              key={experience.title}
+              className={`experience-container ${
+                index % 2 === 0 ? "flex-start" : "flex-end"
+              }`}
+            >
+              <div
+                className="title-container"
+                style={{
+                  width: "45%",
+                  marginLeft: index % 2 === 0 ? "0" : "auto",
+                  marginRight: index % 2 === 0 ? "auto" : "0",
+                }}
+              >
+                <h1>{experience.title}</h1>
+                <h3>{experience.company}</h3>
+              </div>
+              <ul
+                className="work-description"
+                style={{
+                  width: "45%",
+                  marginLeft: index % 2 === 0 ? "auto" : "0",
+                  marginRight: index % 2 === 0 ? "0" : "auto",
+                }}
+              >
                 {experience.description.map((point: any) => (
                   <li key={point}>{point}</li>
                 ))}
@@ -74,6 +93,7 @@ export default function Experience() {
           </>
         ))}
       </section>
+      <FlexHoverSlider items={hackathons} />
       <header>
         <div className="module-header">
           <h1>Courses Taken</h1>

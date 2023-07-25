@@ -1,3 +1,13 @@
+.work-experience-header {
+  height: 12vh;
+  padding-left: 40px;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  display: flex;
+  background: #705478;
+}
+
 .work-experience {
   height: 100vh;
   display: flex;
@@ -6,14 +16,52 @@
 
 .experience-container {
   flex: 1;
+  display: block;
+  padding: 0 3%;
+  position: relative;
+}
+
+.title-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 3%;
+}
+
+.experience-container.flex-start:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.experience-container.flex-end:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0)
+  );
 }
 
 .experience-container:hover .work-description {
   display: block;
+}
+
+.work-description {
+  position: relative;
+  display: none;
 }
 
 .work-experience h1 {
@@ -25,7 +73,7 @@
 }
 
 .work-experience ul {
-  font-size: 2vh;
+  font-size: 1.7vh;
 }
 
 .work-description li {
