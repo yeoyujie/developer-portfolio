@@ -16,6 +16,7 @@
 }
 
 #moon {
+  /* Note: adjusting top value here will not work as it is being directly manipulated by javascript */
   mix-blend-mode: screen;
   left: 50%;
   transform: translateX(-50%);

@@ -1,5 +1,42 @@
 .work-experience {
-  height: 35vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 3%;
+}
+
+.experience-container:hover .work-description {
+  display: block;
+}
+
+.work-experience h1 {
+  font-size: 6vh;
+}
+
+.work-experience h3 {
+  font-size: 4vh;
+}
+
+.work-experience ul {
+  font-size: 2vh;
+}
+
+.work-description li {
+  margin-bottom: 6px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid white;
+  width: 96%;
+  margin: 0 auto;
 }
 
 .hackathon-experience {

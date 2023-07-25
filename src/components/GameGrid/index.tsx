@@ -27,7 +27,7 @@ const GameGrid: React.FC<GameGridProps> = ({ games }) => {
               <Lottie
                 animationData={game.animationData}
                 loop
-                style={{ width: "100%", height: "100%" }}
+                style={{ width: "100%", height: 500 }}
               />
             )}
             <div className="game-thumbnail-overlay">

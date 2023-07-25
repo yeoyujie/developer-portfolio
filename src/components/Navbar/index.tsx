@@ -12,7 +12,7 @@ import LogoNeonOutline from "@/assets/icons/logo neon outline.png";
 
 const pages = [
   { title: "About", href: "/about-me" },
-  { title: "News of the Day", href: "/news" },
+  { title: "News", href: "/news" },
   { title: "Experience", href: "/experience" },
   { title: "Projects", href: "/projects" },
   { title: "Games", href: "/games" },
@@ -29,7 +29,6 @@ export default function Navbar() {
       sx={{
         backgroundColor: "transparent",
         boxShadow: "none",
-        marginBottom: "16px",
       }}
     >
       <Toolbar>

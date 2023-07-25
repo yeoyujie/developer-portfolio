@@ -1,4 +1,7 @@
 import { Experience } from "@/types";
+import cyberGirlImg from "@/assets/gif/cybergirl.gif";
+import cyberPunkImg from "@/assets/gif/cyberpunk.gif";
+import sciFiImg from "@/assets/gif/scifi.gif";
 
 export const experiences: Experience[] = [
   {
@@ -11,6 +14,7 @@ export const experiences: Experience[] = [
       `Automated data analysis and processing through the development of scripts using Python, Pandas, and VBA.`,
       `Developed a custom form using Google Apps Script, HTML, CSS, and JavaScript, with server-side form processing and integration with Google Sheets. Implemented custom error handling and advanced validation rules to check against a list of allowed inputs.`,
     ],
+    backgroundImg: cyberGirlImg,
   },
   {
     title: "DevSecOps Intern",
@@ -21,5 +25,6 @@ export const experiences: Experience[] = [
       `Designed and implemented the backend logic and APIs for an offline image repository using Java Spring Boot, following best practices and standards for security and performance.`,
       `Coordinated effectively with the frontend team to ensure seamless integration and compatibility of the user interface and the backend functionality and optimised overall workflow efficiency.`,
     ],
+    backgroundImg: sciFiImg,
   },
 ];

@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import FlexHoverSlider from "@/components/FlexHoverSlider";
 import { experiences, hackathons, courses } from "@/data";
+import cyberImg from "@/assets/cyber.jpg";
 import "./module.css";
 
 export default function Experience() {
@@ -49,13 +51,27 @@ export default function Experience() {
   return (
     <>
       <FlexHoverSlider items={hackathons} />
-      <section className="work-experience">
-        {experiences.map((experience) => (
-          <div key={experience.title} className="">
-            <h1>{experience.title}</h1>
-            <h3>{experience.company}</h3>
-            <p className="work-description">{experience.description}</p>
-          </div>
+      <section
+        className="work-experience"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${cyberImg.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {experiences.map((experience, index) => (
+          <>
+            <div key={experience.title} className="experience-container">
+              <h1>{experience.title}</h1>
+              <h3>{experience.company}</h3>
+              <ul className="work-description">
+                {experience.description.map((point: any) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </div>
+            {index !== experiences.length - 1 && <hr className="divider" />}
+          </>
         ))}
       </section>
       <header>

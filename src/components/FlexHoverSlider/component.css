@@ -7,7 +7,6 @@
 }
 
 .flex-title {
-  color: #f1f1f1;
   position: relative;
   font-size: 2vw;
   margin: auto;
@@ -19,16 +18,16 @@
   -ms-transition: all 500ms ease;
   -o-transition: all 500ms ease;
   transition: all 500ms ease;
-  width: 350px;
+  width: 400px;
   font-weight: bold;
 }
 
 .flex-about {
   opacity: 0;
-  background-color: rgb(75, 75, 75);
+  background-color: rgb(75, 75, 75, 0.7);
   position: relative;
   width: 70%;
-  font-size: 1vw;
+  font-size: 0.8vw;
   padding: 5%;
   top: 20%;
   border: 2px solid #f1f1f1;
