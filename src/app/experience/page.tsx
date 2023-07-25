@@ -48,9 +48,7 @@ export default function Experience() {
 
   return (
     <>
-      <header>
-        <h1>Experience</h1>
-      </header>
+      <FlexHoverSlider items={hackathons} />
       <section className="work-experience">
         {experiences.map((experience) => (
           <div key={experience.title} className="">
@@ -60,7 +58,6 @@ export default function Experience() {
           </div>
         ))}
       </section>
-      <FlexHoverSlider items={hackathons} />
       <header>
         <div className="module-header">
           <h1>Courses Taken</h1>

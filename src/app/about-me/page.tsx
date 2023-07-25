@@ -7,7 +7,6 @@ import gsap from "gsap";
 import cityImg from "@/assets/city.jpeg";
 import sceneryImg from "@/assets/scenery.jpg";
 import fantasyCityImg from "@/assets/fantasy-city.jpg";
-import Head from "next/head";
 import "./module.css";
 
 const styles: React.CSSProperties = {
@@ -71,9 +70,6 @@ export default function About() {
 
   return (
     <>
-      <Head>
-        <link rel="preload" as="image" href={cityImg.src} />
-      </Head>
       <div style={styles}>
         <Parallax bgImage={cityImg.src} strength={200}>
           <div style={{ height: 1000 }}>
@@ -113,7 +109,7 @@ export default function About() {
             <div style={insideStyles}>Are you ready for the challenge?</div>
           </div>
         </Parallax>
-        <div style={{ padding: 50 }}></div>
+        <div style={{ padding: 200 }}></div>
       </div>
     </>
   );

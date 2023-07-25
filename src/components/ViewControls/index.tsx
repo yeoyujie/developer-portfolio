@@ -1,6 +1,7 @@
 "use client";
 
-import { Button, ButtonGroup, Box } from "@mui/material";
+import { Box, Tab, Tabs } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { ViewMode } from "@/types";
 
 interface ViewControlsProps {
@@ -10,6 +11,14 @@ interface ViewControlsProps {
   setNumArticles: (numArticles: number) => void;
 }
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#80DED9",
+    },
+  },
+});
+
 export function ViewControls({
   viewMode,
   setViewMode,
@@ -17,45 +26,28 @@ export function ViewControls({
   setNumArticles,
 }: ViewControlsProps) {
   return (
-    <Box
-      display="flex"
-      justifyContent="space-between"
-      sx={{ marginBottom: "16px", marginLeft: "10px", marginRight: "10px" }}
-    >
-      <ButtonGroup variant="contained">
-        <Button
-          onClick={() => setViewMode("card")}
-          color={viewMode === "card" ? "primary" : "inherit"}
+    <ThemeProvider theme={theme}>
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        sx={{ marginBottom: "16px", marginLeft: "10px", marginRight: "10px" }}
+      >
+        <Tabs
+          value={viewMode}
+          onChange={(event, newValue) => setViewMode(newValue)}
         >
-          Card View
-        </Button>
-        <Button
-          onClick={() => setViewMode("tab")}
-          color={viewMode === "tab" ? "primary" : "inherit"}
+          <Tab label="Card View" value="card" sx={{ color: "white" }} />
+          <Tab label="Tab View" value="tab" sx={{ color: "white" }} />
+        </Tabs>
+        <Tabs
+          value={numArticles}
+          onChange={(event, newValue) => setNumArticles(newValue)}
         >
-          Tab View
-        </Button>
-      </ButtonGroup>
-      <ButtonGroup variant="contained">
-        <Button
-          onClick={() => setNumArticles(15)}
-          color={numArticles === 15 ? "primary" : "inherit"}
-        >
-          15
-        </Button>
-        <Button
-          onClick={() => setNumArticles(20)}
-          color={numArticles === 20 ? "primary" : "inherit"}
-        >
-          20
-        </Button>
-        <Button
-          onClick={() => setNumArticles(25)}
-          color={numArticles === 25 ? "primary" : "inherit"}
-        >
-          25
-        </Button>
-      </ButtonGroup>
-    </Box>
+          <Tab label="15" value={15} sx={{ color: "white" }} />
+          <Tab label="20" value={20} sx={{ color: "white" }} />
+          <Tab label="25" value={25} sx={{ color: "white" }} />
+        </Tabs>
+      </Box>
+    </ThemeProvider>
   );
 }

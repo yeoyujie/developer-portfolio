@@ -3,7 +3,7 @@
 import GameGrid from "@/components/GameGrid";
 
 import countryFlagImg from "@/assets/country-flags.jpg";
-import comingSoonImg from "@/assets/coming-soon.jpg";
+import inProgressAnimationData from "@/assets/inprogress.json";
 
 import "../../app/bttn.css";
 import "./module.css";
@@ -17,17 +17,17 @@ export default function Games() {
     },
     {
       title: "Coming Soon",
-      thumbnailSrc: comingSoonImg,
+      animationData: inProgressAnimationData,
       href: "/games/coming-soon",
     },
     {
-      title: "Game C",
-      thumbnailSrc: comingSoonImg,
+      title: "Coming Soon",
+      animationData: inProgressAnimationData,
       href: "/games/coming-soon",
     },
     {
-      title: "Game D",
-      thumbnailSrc: comingSoonImg,
+      title: "Coming Soon",
+      animationData: inProgressAnimationData,
       href: "/games/coming-soon",
     },
   ];

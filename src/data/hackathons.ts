@@ -16,7 +16,7 @@ export const hackathons: Hackathon[] = [
     ],
   },
   {
-    name: "NUS Greyhats CTF 2023",
+    name: "Greyhats CTF 2023",
     backgroundImg: greyHatsCtfImg,
     description: [
       `Ranked among the top 20% of the teams out of hundreds of participants from different countries and backgrounds, demonstrating a high level of competence and perseverance in the field of cybersecurity.`,
@@ -30,7 +30,7 @@ export const hackathons: Hackathon[] = [
       `Built a mobile app using React Native, Firebase, and other technologies, as part of a team of four, in response to the theme of “Reimagining the Future of Singapore”.`,
       `Responsible for the frontend development and UI/UX design of the app, using React Native and Material UI.`,
       `Utilized Firebase, Google Cloud, Singapore Tourism Board and YouTube APIs to create a user-friendly and interactive app that showcases the cultural gems, breathtaking sights, and captivating stories of Singapore. Also contributed to the ideation, documentation, and presentation of the app.`,
-      `Appreciated the constructive feedback from the judges on the app’s relevance, functionality, and design. Learned from the suggested areas of improvement, such as incorporating elements of AR/VR to enhance the user experience. Gained valuable insights on how to tackle hackathons better in the future and focus on the key points.`,
+      `Appreciated the constructive feedback from the judges on the app’s relevance, functionality, and design. Learned from the suggested areas of improvement, such as incorporating elements of AR/VR to enhance the user experience. Gained valuable insights on how to tackle hackathons better in the future.`,
     ],
   },
   {

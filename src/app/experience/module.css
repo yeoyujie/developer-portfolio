@@ -15,7 +15,7 @@
 }
 
 .module-header {
-  height: 15vh;
+  height: 12vh;
   padding-left: 40px;
   align-items: center;
   justify-content: space-around;
@@ -83,7 +83,7 @@
 }
 
 .title:nth-child(4) {
-  background: linear-gradient(to top, #c6ffdd, #fbd786, #f7797d);
+  background: linear-gradient(to bottom, #1f4037, #99f2c8);
 }
 .title:nth-child(5) {
   background: linear-gradient(to bottom, #355c7d, #6c5b7b, #c06c84);
@@ -98,7 +98,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #705478;
 }
 
 .course-footer > p {

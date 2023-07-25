@@ -40,7 +40,7 @@ export interface Course {
 export interface Experience {
   title: string;
   company: string;
-  description: string;
+  description: string[];
 }
 
 export interface Hackathon {

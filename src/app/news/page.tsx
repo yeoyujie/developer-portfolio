@@ -4,7 +4,7 @@ import { useState, useEffect, useLayoutEffect } from "react";
 import { ViewControls } from "@/components/ViewControls";
 import { CardView } from "@/components/CardView";
 import { TableView } from "@/components/TableView";
-import { Article, Source } from "@/types";
+import { Article } from "@/types";
 
 type ViewMode = "card" | "tab";
 
@@ -43,14 +43,14 @@ export default function News() {
     localStorage.setItem("numArticles", numArticles.toString());
   }, [viewMode, numArticles]);
 
-  useLayoutEffect(() => {
-    document.body.style.background = "linear-gradient(#203a43, #2c5364)";
+  // useLayoutEffect(() => {
+  //   document.body.style.background = "linear-gradient(45deg, #203a43, #2c5364)";
 
-    // Reset the background color on cleanup
-    return () => {
-      document.body.style.background = "";
-    };
-  }, []);
+  //   // Reset the background color on cleanup
+  //   return () => {
+  //     document.body.style.background = "";
+  //   };
+  // }, []);
 
   return (
     <div>
