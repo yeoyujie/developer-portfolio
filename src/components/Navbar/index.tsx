@@ -22,6 +22,8 @@ const pages = [
 
 export default function Navbar() {
   const [logoSrc, setLogoSrc] = useState(LogoNeonOutline);
+  const gradient = "linear-gradient(to right bottom, #430089, #82ffa1)";
+  const cyanGraident = "linear-gradient(to right bottom, #00c5c8, #70e7d1)";
 
   return (
     <AppBar
@@ -49,8 +51,7 @@ export default function Navbar() {
               sx={{
                 marginLeft: "16px",
                 "&:hover": {
-                  backgroundColor: "white",
-                  color: "#2b1055",
+                  background: gradient,
                 },
               }}
             >
