@@ -59,31 +59,14 @@ export default function Experience() {
       >
         {experiences.map((experience, index) => (
           <>
-            <div
-              key={experience.title}
-              className={`experience-container ${
-                index % 2 === 0 ? "flex-start" : "flex-end"
-              }`}
-            >
-              <div
-                className="title-container"
-                style={{
-                  width: "45%",
-                  marginLeft: index % 2 === 0 ? "0" : "auto",
-                  marginRight: index % 2 === 0 ? "auto" : "0",
-                }}
-              >
-                <h1>{experience.title}</h1>
-                <h3>{experience.company}</h3>
+            <div key={experience.title} className="experience-container">
+              <div className="title-container">
+                <div className="title-inner-container">
+                  <h1>{experience.title}</h1>
+                  <h3>{experience.company}</h3>
+                </div>
               </div>
-              <ul
-                className="work-description"
-                style={{
-                  width: "45%",
-                  marginLeft: index % 2 === 0 ? "auto" : "0",
-                  marginRight: index % 2 === 0 ? "0" : "auto",
-                }}
-              >
+              <ul className="work-description">
                 {experience.description.map((point: any) => (
                   <li key={point}>{point}</li>
                 ))}

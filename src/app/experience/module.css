@@ -15,12 +15,33 @@
 }
 
 .experience-container {
+  display: flex;
   flex: 1;
-  display: block;
-  padding: 0 3%;
-  position: relative;
+  align-items: center;
+  margin: 0 3%;
 }
 
+.experience-container:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+
+.title-container {
+  flex: 1;
+  justify-content: center;
+}
+
+.title-inner-container {
+  text-align: left;
+}
+
+.experience-container:nth-of-type(even) .title-inner-container {
+  text-align: right;
+}
+
+.work-description {
+  flex: 1;
+}
+/* 
 .title-container {
   display: flex;
   flex-direction: column;
@@ -62,7 +83,7 @@
 .work-description {
   position: relative;
   display: none;
-}
+} */
 
 .work-experience h1 {
   font-size: 6vh;
@@ -73,7 +94,7 @@
 }
 
 .work-experience ul {
-  font-size: 1.7vh;
+  font-size: 1.6vh;
 }
 
 .work-description li {
